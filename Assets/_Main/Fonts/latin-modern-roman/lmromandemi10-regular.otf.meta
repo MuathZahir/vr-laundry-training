@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1dc481fd3445e7a40a2c20c3f478cf4b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Latin Modern Roman Demi
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 46ae6517c0bdd524898b694cb5218e70, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

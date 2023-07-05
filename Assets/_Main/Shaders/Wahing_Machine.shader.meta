@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6b928826d8062924db9d40c4c6159376
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _T_M_Washing_2_Machine_AlbedoTransparency: {fileID: 2800000, guid: 40288f4aaf0886749957aac48b870363, type: 3}
+  - _T_M_Washing_2_Machine_Normal: {fileID: 2800000, guid: de02bc2be30da474bb8e937b70032bfb, type: 3}
+  - _T_M_Washing_2_Machine_MetallicSmoothness: {fileID: 2800000, guid: d5ea5879adf183a4cb5a7a231a84b271, type: 3}
+  - _T_M_Washing_2_Machine_Opacity: {fileID: 2800000, guid: bb88bee0f603d52449c53a1ab64d6e89, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

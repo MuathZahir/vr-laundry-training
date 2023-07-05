@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 76962d195292b0c4b84c8940f28ac4ba
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Latin Modern Roman Caps
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 30ce706102a07d440a4f21a2178f4dff, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
