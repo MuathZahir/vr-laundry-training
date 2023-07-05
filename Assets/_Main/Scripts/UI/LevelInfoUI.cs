@@ -15,7 +15,6 @@ public class LevelInfoUI : Page
 
     public override void Initialize()
     {
-        SetLevelInfo(LevelManager.Instance.CurrentLevel.Info);
     }
     
     private void SetLevelInfo(LevelInfo levelInfo)

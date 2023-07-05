@@ -28,7 +28,7 @@ public class WelcomePages : MonoBehaviour
     
     public void TutorialDone()
     {
-        bubbleMenu.IsTutorial = false;
+        bubbleMenu.TutorialComplete();
         // bubbleMenu.IsLevelChooserActive(true);
         // bubbleMenu.IsInfoPageActive(true);
         

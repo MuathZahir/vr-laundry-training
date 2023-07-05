@@ -7,6 +7,7 @@ public class LaundryBasket : LaundryContainer
 {
     [SerializeField] private StainType stainType;
     [SerializeField] private LaundryColor color;
+    [SerializeField] private bool isClean;
     [SerializeField] private GameObject rightLight;
     [SerializeField] private GameObject wrongLight;
     [SerializeField] private AudioClip rightClip;
@@ -23,9 +24,6 @@ public class LaundryBasket : LaundryContainer
     
     public override void OnLaundryRemoved(GarmentInfo garment)
     {
-        if(_clothes.Count == 0)
-            throw new Exception("Removing laundry from empty washing machine");
-
         Debug.Log("Removing laundry from basket");
         
         // Clothes.RemainingClothes++;
@@ -36,9 +34,6 @@ public class LaundryBasket : LaundryContainer
 
     public override void OnLaundryPlaced(GarmentInfo garment)
     {
-        if (_clothes.Count == 3)
-            throw new Exception("Adding laundry to full washing machine");
-        
         garment.OnPutDown -= OnLaundryPlaced;
         
         garment.SetParent(transform);
@@ -54,8 +49,6 @@ public class LaundryBasket : LaundryContainer
         if (level.ClothesRemaining == 0)
         {
             Debug.LogWarning("Level complete!");
-            //TODO: Start animations
-            // StartCoroutine(LevelManager.Instance.NextLevelWithDelay(3));
             LevelManager.Instance.LevelComplete();
         }
         
@@ -67,6 +60,7 @@ public class LaundryBasket : LaundryContainer
     {
         if (other.TryGetComponent<GarmentInfo>(out var garment) && !_clothes.Contains(garment))
         {
+            Debug.Log(other.transform.parent.name);
             var correct = IsCorrect(garment);
 
             rightLight.SetActive(correct);
@@ -94,10 +88,10 @@ public class LaundryBasket : LaundryContainer
     
     private bool IsCorrect(GarmentInfo clothes)
     {
-        var correctColor = color == LaundryColor.Any || clothes.GetColor() == color;
-        var correctStain = stainType == StainType.Any || clothes.GetStainType() == stainType;
+        var correctColor = color == LaundryColor.Any || clothes.LaundryColor == color;
+        var correctStain = stainType == StainType.Any || clothes.StainType == stainType;
         
-        return correctColor && correctStain;
+        return correctColor && correctStain && isClean == clothes.IsClean;
     }
     
     public override void Restart()

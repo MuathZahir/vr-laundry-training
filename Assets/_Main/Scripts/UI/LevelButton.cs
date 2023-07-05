@@ -59,6 +59,9 @@ public class LevelButton : MonoBehaviour
 
     public void Enabled(bool isEnabled)
     {
+        if (!isEnabled)
+            _toggle.isOn = false;
+        
         _toggle.interactable = isEnabled;
     }
 }

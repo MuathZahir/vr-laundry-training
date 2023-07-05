@@ -10,11 +10,11 @@ Shader "S_Cloth"
 		_T_M_1_Cloth_MetallicSmoothness("T_M_1_Cloth_MetallicSmoothness", 2D) = "white" {}
 		_T_M_Cloth_1_Normal("T_M_Cloth_1_Normal", 2D) = "bump" {}
 		_StainsOpacity("Stains Opacity", Range( 0 , 1)) = 0.9
+		_StainColor("Stain Color", Color) = (0.2901961,0.2941177,0.1764706,1)
 		_DirtOpacity("Dirt Opacity", Range( 0 , 1)) = 1
+		_DirtColor("Dirt Color", Color) = (0.3882353,0.3490196,0.3215686,1)
 		_Mask_1("Mask_1", 2D) = "white" {}
 		_Mask_2("Mask_2", 2D) = "white" {}
-		_T_M_Stains_AlbedoTransparency("T_M_Stains_AlbedoTransparency", 2D) = "white" {}
-		_T_M_Dirt_AlbedoTransparency("T_M_Dirt_AlbedoTransparency", 2D) = "white" {}
 		_T_M_Dirt_Roughness("T_M_Dirt_Roughness", 2D) = "white" {}
 		[ASEEnd]_TextureSample0("Texture Sample 0", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
@@ -281,9 +281,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -324,9 +324,7 @@ Shader "S_Cloth"
 			#endif
 
 			sampler2D _T_M_1_Cloth_AlbedoTransparency;
-			sampler2D _T_M_Stains_AlbedoTransparency;
 			sampler2D _Mask_1;
-			sampler2D _T_M_Dirt_AlbedoTransparency;
 			sampler2D _Mask_2;
 			sampler2D _T_M_Cloth_1_Normal;
 			sampler2D _T_M_1_Cloth_MetallicSmoothness;
@@ -562,14 +560,12 @@ Shader "S_Cloth"
 				WorldViewDirection = SafeNormalize( WorldViewDirection );
 
 				float2 uv_T_M_1_Cloth_AlbedoTransparency = IN.ase_texcoord8.xy * _T_M_1_Cloth_AlbedoTransparency_ST.xy + _T_M_1_Cloth_AlbedoTransparency_ST.zw;
-				float2 uv_T_M_Stains_AlbedoTransparency = IN.ase_texcoord8.xy * _T_M_Stains_AlbedoTransparency_ST.xy + _T_M_Stains_AlbedoTransparency_ST.zw;
 				float2 uv_Mask_1 = IN.ase_texcoord8.xy * _Mask_1_ST.xy + _Mask_1_ST.zw;
 				float4 tex2DNode14 = tex2D( _Mask_1, uv_Mask_1 );
-				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , tex2D( _T_M_Stains_AlbedoTransparency, uv_T_M_Stains_AlbedoTransparency ) , ( _StainsOpacity * tex2DNode14 ));
-				float2 uv_T_M_Dirt_AlbedoTransparency = IN.ase_texcoord8.xy * _T_M_Dirt_AlbedoTransparency_ST.xy + _T_M_Dirt_AlbedoTransparency_ST.zw;
+				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , _StainColor , ( _StainsOpacity * tex2DNode14 ));
 				float2 uv_Mask_2 = IN.ase_texcoord8.xy * _Mask_2_ST.xy + _Mask_2_ST.zw;
 				float4 tex2DNode24 = tex2D( _Mask_2, uv_Mask_2 );
-				float4 lerpResult23 = lerp( lerpResult15 , tex2D( _T_M_Dirt_AlbedoTransparency, uv_T_M_Dirt_AlbedoTransparency ) , ( _DirtOpacity * tex2DNode24 ));
+				float4 lerpResult23 = lerp( lerpResult15 , _DirtColor , ( _DirtOpacity * tex2DNode24 ));
 				
 				float2 uv_T_M_Cloth_1_Normal = IN.ase_texcoord8.xy * _T_M_Cloth_1_Normal_ST.xy + _T_M_Cloth_1_Normal_ST.zw;
 				
@@ -850,9 +846,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -1163,9 +1159,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -1458,9 +1454,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -1501,9 +1497,7 @@ Shader "S_Cloth"
 			#endif
 
 			sampler2D _T_M_1_Cloth_AlbedoTransparency;
-			sampler2D _T_M_Stains_AlbedoTransparency;
 			sampler2D _Mask_1;
-			sampler2D _T_M_Dirt_AlbedoTransparency;
 			sampler2D _Mask_2;
 
 
@@ -1677,14 +1671,12 @@ Shader "S_Cloth"
 				#endif
 
 				float2 uv_T_M_1_Cloth_AlbedoTransparency = IN.ase_texcoord4.xy * _T_M_1_Cloth_AlbedoTransparency_ST.xy + _T_M_1_Cloth_AlbedoTransparency_ST.zw;
-				float2 uv_T_M_Stains_AlbedoTransparency = IN.ase_texcoord4.xy * _T_M_Stains_AlbedoTransparency_ST.xy + _T_M_Stains_AlbedoTransparency_ST.zw;
 				float2 uv_Mask_1 = IN.ase_texcoord4.xy * _Mask_1_ST.xy + _Mask_1_ST.zw;
 				float4 tex2DNode14 = tex2D( _Mask_1, uv_Mask_1 );
-				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , tex2D( _T_M_Stains_AlbedoTransparency, uv_T_M_Stains_AlbedoTransparency ) , ( _StainsOpacity * tex2DNode14 ));
-				float2 uv_T_M_Dirt_AlbedoTransparency = IN.ase_texcoord4.xy * _T_M_Dirt_AlbedoTransparency_ST.xy + _T_M_Dirt_AlbedoTransparency_ST.zw;
+				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , _StainColor , ( _StainsOpacity * tex2DNode14 ));
 				float2 uv_Mask_2 = IN.ase_texcoord4.xy * _Mask_2_ST.xy + _Mask_2_ST.zw;
 				float4 tex2DNode24 = tex2D( _Mask_2, uv_Mask_2 );
-				float4 lerpResult23 = lerp( lerpResult15 , tex2D( _T_M_Dirt_AlbedoTransparency, uv_T_M_Dirt_AlbedoTransparency ) , ( _DirtOpacity * tex2DNode24 ));
+				float4 lerpResult23 = lerp( lerpResult15 , _DirtColor , ( _DirtOpacity * tex2DNode24 ));
 				
 
 				float3 BaseColor = lerpResult23.rgb;
@@ -1770,9 +1762,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -1813,9 +1805,7 @@ Shader "S_Cloth"
 			#endif
 
 			sampler2D _T_M_1_Cloth_AlbedoTransparency;
-			sampler2D _T_M_Stains_AlbedoTransparency;
 			sampler2D _Mask_1;
-			sampler2D _T_M_Dirt_AlbedoTransparency;
 			sampler2D _Mask_2;
 
 
@@ -1974,14 +1964,12 @@ Shader "S_Cloth"
 				#endif
 
 				float2 uv_T_M_1_Cloth_AlbedoTransparency = IN.ase_texcoord2.xy * _T_M_1_Cloth_AlbedoTransparency_ST.xy + _T_M_1_Cloth_AlbedoTransparency_ST.zw;
-				float2 uv_T_M_Stains_AlbedoTransparency = IN.ase_texcoord2.xy * _T_M_Stains_AlbedoTransparency_ST.xy + _T_M_Stains_AlbedoTransparency_ST.zw;
 				float2 uv_Mask_1 = IN.ase_texcoord2.xy * _Mask_1_ST.xy + _Mask_1_ST.zw;
 				float4 tex2DNode14 = tex2D( _Mask_1, uv_Mask_1 );
-				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , tex2D( _T_M_Stains_AlbedoTransparency, uv_T_M_Stains_AlbedoTransparency ) , ( _StainsOpacity * tex2DNode14 ));
-				float2 uv_T_M_Dirt_AlbedoTransparency = IN.ase_texcoord2.xy * _T_M_Dirt_AlbedoTransparency_ST.xy + _T_M_Dirt_AlbedoTransparency_ST.zw;
+				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , _StainColor , ( _StainsOpacity * tex2DNode14 ));
 				float2 uv_Mask_2 = IN.ase_texcoord2.xy * _Mask_2_ST.xy + _Mask_2_ST.zw;
 				float4 tex2DNode24 = tex2D( _Mask_2, uv_Mask_2 );
-				float4 lerpResult23 = lerp( lerpResult15 , tex2D( _T_M_Dirt_AlbedoTransparency, uv_T_M_Dirt_AlbedoTransparency ) , ( _DirtOpacity * tex2DNode24 ));
+				float4 lerpResult23 = lerp( lerpResult15 , _DirtColor , ( _DirtOpacity * tex2DNode24 ));
 				
 
 				float3 BaseColor = lerpResult23.rgb;
@@ -2064,9 +2052,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -2431,9 +2419,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -2474,9 +2462,7 @@ Shader "S_Cloth"
 			#endif
 
 			sampler2D _T_M_1_Cloth_AlbedoTransparency;
-			sampler2D _T_M_Stains_AlbedoTransparency;
 			sampler2D _Mask_1;
-			sampler2D _T_M_Dirt_AlbedoTransparency;
 			sampler2D _Mask_2;
 			sampler2D _T_M_Cloth_1_Normal;
 			sampler2D _T_M_1_Cloth_MetallicSmoothness;
@@ -2705,14 +2691,12 @@ Shader "S_Cloth"
 				WorldViewDirection = SafeNormalize( WorldViewDirection );
 
 				float2 uv_T_M_1_Cloth_AlbedoTransparency = IN.ase_texcoord8.xy * _T_M_1_Cloth_AlbedoTransparency_ST.xy + _T_M_1_Cloth_AlbedoTransparency_ST.zw;
-				float2 uv_T_M_Stains_AlbedoTransparency = IN.ase_texcoord8.xy * _T_M_Stains_AlbedoTransparency_ST.xy + _T_M_Stains_AlbedoTransparency_ST.zw;
 				float2 uv_Mask_1 = IN.ase_texcoord8.xy * _Mask_1_ST.xy + _Mask_1_ST.zw;
 				float4 tex2DNode14 = tex2D( _Mask_1, uv_Mask_1 );
-				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , tex2D( _T_M_Stains_AlbedoTransparency, uv_T_M_Stains_AlbedoTransparency ) , ( _StainsOpacity * tex2DNode14 ));
-				float2 uv_T_M_Dirt_AlbedoTransparency = IN.ase_texcoord8.xy * _T_M_Dirt_AlbedoTransparency_ST.xy + _T_M_Dirt_AlbedoTransparency_ST.zw;
+				float4 lerpResult15 = lerp( tex2D( _T_M_1_Cloth_AlbedoTransparency, uv_T_M_1_Cloth_AlbedoTransparency ) , _StainColor , ( _StainsOpacity * tex2DNode14 ));
 				float2 uv_Mask_2 = IN.ase_texcoord8.xy * _Mask_2_ST.xy + _Mask_2_ST.zw;
 				float4 tex2DNode24 = tex2D( _Mask_2, uv_Mask_2 );
-				float4 lerpResult23 = lerp( lerpResult15 , tex2D( _T_M_Dirt_AlbedoTransparency, uv_T_M_Dirt_AlbedoTransparency ) , ( _DirtOpacity * tex2DNode24 ));
+				float4 lerpResult23 = lerp( lerpResult15 , _DirtColor , ( _DirtOpacity * tex2DNode24 ));
 				
 				float2 uv_T_M_Cloth_1_Normal = IN.ase_texcoord8.xy * _T_M_Cloth_1_Normal_ST.xy + _T_M_Cloth_1_Normal_ST.zw;
 				
@@ -2891,9 +2875,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -3146,9 +3130,9 @@ Shader "S_Cloth"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _T_M_1_Cloth_AlbedoTransparency_ST;
-			float4 _T_M_Stains_AlbedoTransparency_ST;
+			float4 _StainColor;
 			float4 _Mask_1_ST;
-			float4 _T_M_Dirt_AlbedoTransparency_ST;
+			float4 _DirtColor;
 			float4 _Mask_2_ST;
 			float4 _T_M_Cloth_1_Normal_ST;
 			float4 _T_M_1_Cloth_MetallicSmoothness_ST;
@@ -3366,30 +3350,32 @@ Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;7;0,0;Float;False;False;-1;
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;8;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;SceneSelectionPass;0;8;SceneSelectionPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;9;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ScenePickingPass;0;9;ScenePickingPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Picking;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.RangedFloatNode;22;-2789.606,2.877002;Inherit;False;Property;_StainsOpacity;Stains Opacity;3;0;Create;True;0;0;0;False;0;False;0.9;0;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SamplerNode;14;-2751.66,-317.0039;Inherit;True;Property;_Mask_1;Mask_1;5;0;Create;True;0;0;0;False;0;False;-1;eef711d0480781043959382cc1d47707;eef711d0480781043959382cc1d47707;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;13;-1197.837,-504.6245;Inherit;True;Property;_T_M_Stains_AlbedoTransparency;T_M_Stains_AlbedoTransparency;7;0;Create;True;0;0;0;False;0;False;-1;b33fbad0524e0c741b79d195502690ae;b33fbad0524e0c741b79d195502690ae;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;27;-490.0511,-540.2808;Inherit;True;Property;_T_M_Dirt_AlbedoTransparency;T_M_Dirt_AlbedoTransparency;8;0;Create;True;0;0;0;False;0;False;-1;42f5e4fe60e606345bfb52e2a7e6e9fb;42f5e4fe60e606345bfb52e2a7e6e9fb;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;14;-2751.66,-317.0039;Inherit;True;Property;_Mask_1;Mask_1;7;0;Create;True;0;0;0;False;0;False;-1;eef711d0480781043959382cc1d47707;eef711d0480781043959382cc1d47707;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;27;-490.0511,-540.2808;Inherit;True;Property;_T_M_Dirt_AlbedoTransparency;T_M_Dirt_AlbedoTransparency;10;0;Create;True;0;0;0;False;0;False;-1;42f5e4fe60e606345bfb52e2a7e6e9fb;42f5e4fe60e606345bfb52e2a7e6e9fb;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;10;-1351.655,702.6579;Inherit;True;Property;_T_M_1_Cloth_AlbedoTransparency;T_M_1_Cloth_AlbedoTransparency;0;0;Create;True;0;0;0;False;0;False;-1;None;286efccce9bf0bd43add5e3acbf9f877;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;28;-2757.042,-643.1578;Inherit;True;Property;_T_M_Stains_Roughness;T_M_Stains_Roughness;9;0;Create;True;0;0;0;False;0;False;-1;e1d0568b21214424fabf92f3235bc672;e1d0568b21214424fabf92f3235bc672;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;28;-2757.042,-643.1578;Inherit;True;Property;_T_M_Stains_Roughness;T_M_Stains_Roughness;11;0;Create;True;0;0;0;False;0;False;-1;e1d0568b21214424fabf92f3235bc672;e1d0568b21214424fabf92f3235bc672;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.LerpOp;23;101.066,-134.173;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;24;-2832.753,289.0631;Inherit;True;Property;_Mask_2;Mask_2;6;0;Create;True;0;0;0;False;0;False;-1;eccc9d1b5df64be438b89d19db61f4da;eccc9d1b5df64be438b89d19db61f4da;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;24;-2832.753,289.0631;Inherit;True;Property;_Mask_2;Mask_2;8;0;Create;True;0;0;0;False;0;False;-1;eccc9d1b5df64be438b89d19db61f4da;eccc9d1b5df64be438b89d19db61f4da;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;26;-1913.141,274.2693;Inherit;True;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.RangedFloatNode;25;-2724.252,634.4594;Inherit;False;Property;_DirtOpacity;Dirt Opacity;4;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;25;-2724.252,634.4594;Inherit;False;Property;_DirtOpacity;Dirt Opacity;5;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;32;-1813.318,1099.096;Inherit;True;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;20;-1868.44,-326.274;Inherit;True;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.OneMinusNode;35;-1409.394,1831.278;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.LerpOp;15;-719.9962,-113.3676;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.LerpOp;36;-819.4675,1313.077;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.OneMinusNode;30;-1794.411,1363.818;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;29;-2631.337,1338.857;Inherit;True;Property;_T_M_Dirt_Roughness;T_M_Dirt_Roughness;10;0;Create;True;0;0;0;False;0;False;-1;fbfadaa3b9ad5984fa76bdc792fece7c;fbfadaa3b9ad5984fa76bdc792fece7c;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;33;-2584.942,1845.366;Inherit;True;Property;_TextureSample0;Texture Sample 0;11;0;Create;True;0;0;0;False;0;False;-1;e1d0568b21214424fabf92f3235bc672;e1d0568b21214424fabf92f3235bc672;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;29;-2631.337,1338.857;Inherit;True;Property;_T_M_Dirt_Roughness;T_M_Dirt_Roughness;12;0;Create;True;0;0;0;False;0;False;-1;fbfadaa3b9ad5984fa76bdc792fece7c;fbfadaa3b9ad5984fa76bdc792fece7c;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;33;-2584.942,1845.366;Inherit;True;Property;_TextureSample0;Texture Sample 0;13;0;Create;True;0;0;0;False;0;False;-1;e1d0568b21214424fabf92f3235bc672;e1d0568b21214424fabf92f3235bc672;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;34;-1814.486,1506.394;Inherit;True;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.LerpOp;37;-249.2318,1314.632;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SamplerNode;38;88.46002,1355.544;Inherit;True;Property;_T_M_Cloth_1_Normal;T_M_Cloth_1_Normal;2;0;Create;True;0;0;0;False;0;False;-1;9b21b0ac6f65ba1489ebefce07e5c8d9;9b21b0ac6f65ba1489ebefce07e5c8d9;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;879.0283,15.50396;Float;False;True;-1;2;UnityEditor.ShaderGraphLitGUI;0;12;S_Cloth;94348b07e5e8bab40bd6c8a1e3df54cd;True;Forward;0;1;Forward;19;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;2;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;3;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalForward;False;False;0;;0;0;Standard;41;Workflow;1;0;Surface;0;0;  Refraction Model;0;0;  Blend;0;0;Two Sided;0;638240053731691565;Fragment Normal Space,InvertActionOnDeselection;0;0;Forward Only;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;  Use Shadow Threshold;0;0;Receive Shadows;1;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;_FinalColorxAlpha;0;0;Meta Pass;1;0;Override Baked GI;0;0;Extra Pre Pass;0;0;DOTS Instancing;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Write Depth;0;0;  Early Z;0;0;Vertex Position,InvertActionOnDeselection;1;0;Debug Display;0;0;Clear Coat;0;0;0;10;False;True;True;True;True;True;True;True;True;True;False;;False;0
 Node;AmplifyShaderEditor.SamplerNode;11;-1357.141,938.336;Inherit;True;Property;_T_M_1_Cloth_MetallicSmoothness;T_M_1_Cloth_MetallicSmoothness;1;0;Create;True;0;0;0;False;0;False;-1;None;32a04406d41ff384dbb7e8efff301e57;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;13;-1185.253,-531.0518;Inherit;True;Property;_T_M_Stains_AlbedoTransparency;T_M_Stains_AlbedoTransparency;9;0;Create;True;0;0;0;False;0;False;-1;b33fbad0524e0c741b79d195502690ae;b33fbad0524e0c741b79d195502690ae;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;40;-724.6402,-730.093;Inherit;False;Property;_DirtColor;Dirt Color;6;0;Create;True;0;0;0;False;0;False;0.3882353,0.3490196,0.3215686,1;0.3882353,0.3490196,0.3215686,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;39;-1148.811,-741.6833;Inherit;False;Property;_StainColor;Stain Color;4;0;Create;True;0;0;0;False;0;False;0.2901961,0.2941177,0.1764706,1;0.2901961,0.2941177,0.1764706,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 WireConnection;23;0;15;0
-WireConnection;23;1;27;0
+WireConnection;23;1;40;0
 WireConnection;23;2;26;0
 WireConnection;26;0;25;0
 WireConnection;26;1;24;0
@@ -3399,7 +3385,7 @@ WireConnection;20;0;22;0
 WireConnection;20;1;14;0
 WireConnection;35;0;33;0
 WireConnection;15;0;10;0
-WireConnection;15;1;13;0
+WireConnection;15;1;39;0
 WireConnection;15;2;20;0
 WireConnection;36;0;11;4
 WireConnection;36;1;30;0
@@ -3415,4 +3401,4 @@ WireConnection;1;1;38;0
 WireConnection;1;3;11;0
 WireConnection;1;4;37;0
 ASEEND*/
-//CHKSM=9A79CA46DB9986BFB9FE10ED5D0DAF9913612CF4
+//CHKSM=896686D9C68851212D507C597426E0446B11024A

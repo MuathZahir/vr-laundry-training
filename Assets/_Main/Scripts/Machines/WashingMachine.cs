@@ -14,44 +14,27 @@ public class WashingMachine : LaundryContainer
     [SerializeField] private MachineTimer timer;
 
     private HashSet<GarmentInfo> _clothes = new();
-    private AudioSource _audioSource;
     private IEnumerator washingCoroutine;
     
     private void Start()
     {
-        _audioSource = gameObject.GetComponent<AudioSource>();
-        
         timer.OnTimerStart += StartRotating;
         timer.OnTimerDone += StopRotating;
     }
     
     public override void OnLaundryRemoved(GarmentInfo garment)
     {
-        if(_clothes.Count == 0)
-            throw new Exception("Removing laundry from empty washing machine");
-        
         _clothes.Remove(garment);
-        
-        _audioSource.PlayOneShot(laundryRemovedSound);
     }
 
     public override void OnLaundryPlaced(GarmentInfo garment)
     {
-        if(_clothes.Count == targetLaundryCount)
-            throw new Exception("Adding laundry to full washing machine");
-        
         _clothes.Add(garment);
         
         garment.SetParent(drum);
-
-        _audioSource.PlayOneShot(laundryPlacedSound);
         
         if (_clothes.Count == targetLaundryCount)
         {
-            // TODO: Play winning animation
-            // TODO: Move to next level
-            
-            LevelManager.Instance.CurrentLevel.CompleteLevel();
         }
     }
 
@@ -90,6 +73,11 @@ public class WashingMachine : LaundryContainer
     private void StopRotating()
     {
         StopCoroutine(washingCoroutine);
+
+        foreach (var garmentInfo in _clothes)
+        {
+            garmentInfo.GetGarment().Clean();
+        }
     }
     
     // Begin rotating drum

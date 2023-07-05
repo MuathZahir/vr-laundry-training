@@ -26,6 +26,12 @@ public class BubbleMenu : MonoBehaviour
         infoPage.SetTutorialText();
     }
 
+    public void TutorialComplete()
+    {
+        IsTutorial = false;
+        levelChooser.Enabled(true);
+    }
+
     public void OpenMenu()
     {
         menu.SetActive(true);
