@@ -7,16 +7,19 @@ using UnityEngine;
 
 public class Towel : MonoBehaviour
 {
+    public event Action OnPlacedTowel = null;
+    
     [HideInInspector] public List<TowelFixedPoint> FixedPoints = new List<TowelFixedPoint>();
     
     [SerializeField] private Transform fixedPoints;
     [SerializeField] private Tutorial tutorial;
 
-    private UCCloth _cloth;
+    public UCCloth Cloth { get; private set; }
+    public bool IsFolded { get; set; } = false;
 
     private void Awake()
     {
-        _cloth = gameObject.GetComponent<UCCloth>();
+        Cloth = gameObject.GetComponent<UCCloth>();
     }
 
     public void CheckIfFolded()
@@ -29,10 +32,15 @@ public class Towel : MonoBehaviour
                 break;
             // Folded second time
             case 2:
-                _cloth.enabled = false;
+                IsFolded = true;
                 tutorial.CompleteTutorial();
                 break;
         }
+    }
+
+    public void OnPlaced()
+    {
+        OnPlacedTowel?.Invoke();
     }
 
 }

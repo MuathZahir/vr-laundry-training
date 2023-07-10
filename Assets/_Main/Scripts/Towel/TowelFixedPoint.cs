@@ -9,6 +9,8 @@ using UnityEngine.Serialization;
 
 public class TowelFixedPoint : MonoBehaviour
 {
+    public event Action OnPutDown = null;
+    
     [SerializeField] private Towel towel;
     [SerializeField] private UCCloth cloth;
     [SerializeField] private SnappingGuide snappingGuide;
@@ -170,5 +172,21 @@ public class TowelFixedPoint : MonoBehaviour
 
         // Access the result of the async function
         finishCallback(tcs.Task.Result);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.TryGetComponent<TowelGatherer>(out var gatherer) && !_isGrabbed && towel.IsFolded)
+        {
+            towel.FixedPoints.Remove(this);
+
+            if (towel.FixedPoints.Count == 0)
+            {
+                cloth.enabled = false;
+                towel.OnPlaced();
+            }
+            
+            gameObject.SetActive(false);
+        }
     }
 }

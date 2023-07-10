@@ -101,8 +101,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809602843803580933}
   m_LocalRotation: {x: 0.22586772, y: 0.67016613, z: 0.66993237, w: -0.22594653}
-  m_LocalPosition: {x: 0.041999996, y: 0.518, z: -0.003000021}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: 0.042, y: 0.412, z: -0.049}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3893946194300011401}
@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 3555490201545054893}
   - component: {fileID: 2090925486763040719}
   - component: {fileID: 8182630555116412716}
-  - component: {fileID: 8445134870170922369}
   m_Layer: 0
   m_Name: Garment
   m_TagString: Untagged
@@ -286,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 3555490201545054892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3555490202973115779}
@@ -310,6 +309,7 @@ MonoBehaviour:
   garmentRandomizer: {fileID: 8182630555116412716}
   idleCloth: {fileID: 1809602843803580933}
   heldCloth: {fileID: 6576250701322987861}
+  heldClothOpposite: {fileID: 0}
 --- !u!114 &8182630555116412716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,47 +396,6 @@ MonoBehaviour:
   - Name: Mud Stain
     Color: {r: 0.39607844, g: 0.2627451, b: 0.12941177, a: 1}
     StainType: 2
---- !u!114 &8445134870170922369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3555490201545054892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe1b51de15b4b047ad3a23cbaf9b725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
-  heldClothRenderer: {fileID: 0}
-  idleClothRenderer: {fileID: 0}
-  garmentMaterialTextures:
-  - Albedo: {fileID: 2800000, guid: d65b64a9f3fa4634eb964f39fb5c1109, type: 3}
-    Metallic: {fileID: 2800000, guid: ceec25ecf3f0d844680387b61343322a, type: 3}
-    Normal: {fileID: 2800000, guid: 607648e05efd669498fe4e3fed32eec7, type: 3}
-    LaundryColor: 0
-  - Albedo: {fileID: 2800000, guid: 286efccce9bf0bd43add5e3acbf9f877, type: 3}
-    Metallic: {fileID: 2800000, guid: 32a04406d41ff384dbb7e8efff301e57, type: 3}
-    Normal: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
-    LaundryColor: 0
-  - Albedo: {fileID: 2800000, guid: abff160957991ba4a95cfacfedfa1ef2, type: 3}
-    Metallic: {fileID: 2800000, guid: e8b0d5ae91b15514cbdf61dd8be1abd7, type: 3}
-    Normal: {fileID: 2800000, guid: f5b97cc420b27c74983b45ac2b2bd055, type: 3}
-    LaundryColor: 0
-  - Albedo: {fileID: 2800000, guid: fe82c9f914b10f040a98b9b0f587acd2, type: 3}
-    Metallic: {fileID: 2800000, guid: 3c567b4e44e6c4d45b1eba742d62fa29, type: 3}
-    Normal: {fileID: 2800000, guid: eece18cff5eec684bb1a8fe8c3c2bac2, type: 3}
-    LaundryColor: 0
-  - Albedo: {fileID: 2800000, guid: 9e6f0e32317173a4c8de43ea0a5a7282, type: 3}
-    Metallic: {fileID: 2800000, guid: ae8d1ed63b1989d4f92524072b76f9e3, type: 3}
-    Normal: {fileID: 2800000, guid: 28aa5283889a3624c97acfd4367c4211, type: 3}
-    LaundryColor: 0
-  - Albedo: {fileID: 2800000, guid: 10af3e6aecb6ac549a4adc8e6434e65a, type: 3}
-    Metallic: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
-    Normal: {fileID: 2800000, guid: 200049cad64518a4c91679fc623cd66b, type: 3}
-    LaundryColor: 0
-  stainColors: []
 --- !u!1 &3555490201665269475
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,8 +891,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29843038, y: 0.07318055, z: 0.3094391}
-  m_Center: {x: 0.017030915, y: 0.09871163, z: 0.012517777}
+  m_Size: {x: 0.42067996, y: 0.09159005, z: 0.34134996}
+  m_Center: {x: 0.020461904, y: 0.10791649, z: -0.033721708}
 --- !u!114 &948657854185967366
 MonoBehaviour:
   m_ObjectHideFlags: 0

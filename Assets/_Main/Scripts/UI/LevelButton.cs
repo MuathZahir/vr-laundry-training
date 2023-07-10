@@ -1,31 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Main.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
 {
     public static event Action<Level> OnLevelSelected;
+
+    [SerializeField] private BubbleButton button;
+    [SerializeField] private BubbleMenu menu;
     
-    private Toggle _toggle;
     private Image _background;
     private Level _level;
 
     public void InitializeButton()
     {
-        _toggle = gameObject.GetComponent<Toggle>();
         _background = gameObject.GetComponent<Image>();
-    }
-
-    private void OnEnable()
-    {
-        _toggle.onValueChanged.AddListener(OnToggle);
-    }
-    
-    private void OnDisable()
-    {
-        _toggle.onValueChanged.RemoveListener(OnToggle);
     }
 
     public void SetLevel(Level level)
@@ -38,11 +30,11 @@ public class LevelButton : MonoBehaviour
         try
         {
             if (LevelManager.Instance.CurrentLevel == _level)
-                _toggle.isOn = true;
+                _background.color = Color.blue; // TODO: this should change the bubble button not the background
             else if (_level.State == LevelState.Completed)
                 _background.color = Color.green;
-            else if (_level.State == LevelState.Tried)
-                _background.color = Color.red;
+            else if (_level.State == LevelState.NotCompleted)
+                _background.color = Color.grey;
         }
         catch (ArgumentOutOfRangeException e)
         {
@@ -50,8 +42,14 @@ public class LevelButton : MonoBehaviour
         }
     }
     
-    private void OnToggle(bool isOn)
+    public void OnToggle(bool isOn)
     {
+        if (menu.IsTutorial)
+        {
+            menu.ShowTutorialText();
+            return;
+        }
+        
         if (!isOn || LevelManager.Instance.CurrentLevel == _level) return;
         
         OnLevelSelected?.Invoke(_level);
@@ -59,9 +57,6 @@ public class LevelButton : MonoBehaviour
 
     public void Enabled(bool isEnabled)
     {
-        if (!isEnabled)
-            _toggle.isOn = false;
-        
-        _toggle.interactable = isEnabled;
+        button.SetEnabled(isEnabled);
     }
 }

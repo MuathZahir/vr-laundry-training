@@ -6,7 +6,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public int ClothesRemaining { get; set; }
-    public LevelState State { get; set; } = LevelState.NotTried;
+    public LevelState State { get; set; } = LevelState.NotCompleted;
     public LevelInfo Info { get; private set; }
     public int LevelNumber { get; private set; }
     
@@ -31,9 +31,6 @@ public class Level : MonoBehaviour
 
     public void StartLevel()
     {
-        if (State != LevelState.Completed)
-            State = LevelState.Tried;
-        
         animator.SetTrigger(Start);
         
         if(tutorial != null)
@@ -64,7 +61,6 @@ public class Level : MonoBehaviour
 
 public enum LevelState
 {
-    NotTried,
-    Tried,
+    NotCompleted,
     Completed
 }

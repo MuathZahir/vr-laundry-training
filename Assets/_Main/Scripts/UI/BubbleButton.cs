@@ -17,6 +17,7 @@ namespace _Main.Scripts.UI
         private Vector3 _originalScale;
 
         private bool _isSelected = false;
+        private bool _isEnabled = true;
         
         private void Awake()
         {
@@ -30,14 +31,16 @@ namespace _Main.Scripts.UI
 
         public void Hover()
         {
+            if (!_isEnabled) return; 
+            
             LeanTween.scale(gameObject, _originalScale * scaleMultiplier, scaleTime)
                 .setEase(LeanTweenType.easeInOutCubic);
-
-            menu.SetSelectedButton(this);
         }
         
         public void Click()
         {
+            if(!_isEnabled) return;
+            
             audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
             audioSource.PlayOneShot(buttonClickedSound);
 
@@ -51,6 +54,11 @@ namespace _Main.Scripts.UI
             LeanTween.cancel(gameObject);
             // reset size of button gradually
             LeanTween.scale(gameObject, _originalScale, 0.1f).setEase(LeanTweenType.easeOutElastic);
+        }
+        
+        public void SetEnabled(bool enabled)
+        {
+            _isEnabled = enabled;
         }
     }
 }

@@ -7,10 +7,12 @@ public class Tutorial : MonoBehaviour
 {
     [SerializeField] private Animator[] animators;
     
-    private static readonly int StartTrigger = Animator.StringToHash("Start");
-    private static readonly int NextTrigger = Animator.StringToHash("Next");
-    
     private bool _wasShown = false;
+
+    private void OnEnable()
+    {
+        StartTutorial();
+    }
 
     public void StartTutorial()
     {
@@ -18,7 +20,7 @@ public class Tutorial : MonoBehaviour
         
         foreach (var animator in animators)
         {
-            animator.GetInteger("Start");
+            animator.SetTrigger("Start");
         }
     }
     
@@ -28,7 +30,7 @@ public class Tutorial : MonoBehaviour
         
         foreach (var animator in animators)
         {
-            animator.SetTrigger(NextTrigger);
+            animator.SetTrigger("Next");
         }
     }
 

@@ -60,6 +60,8 @@ public class LaundryBasket : LaundryContainer
     {
         if (other.TryGetComponent<GarmentInfo>(out var garment) && !_clothes.Contains(garment))
         {
+            if (!garment.IsHeld) return;
+            
             Debug.Log(other.transform.parent.name);
             var correct = IsCorrect(garment);
 

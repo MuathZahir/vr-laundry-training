@@ -64,4 +64,9 @@ public class LevelManager : MonoBehaviour
     {
         return Levels[levelNumber];
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

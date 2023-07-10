@@ -22,7 +22,7 @@ public class BubbleMenu : MonoBehaviour
         menu.SetActive(false);
         
         // Make sure that the pages don't work in tutorial mode
-        levelChooser.Enabled(false);
+        //levelChooser.Enabled(false);
         infoPage.SetTutorialText();
     }
 
@@ -35,6 +35,10 @@ public class BubbleMenu : MonoBehaviour
     public void OpenMenu()
     {
         menu.SetActive(true);
+        
+        infoPage.gameObject.SetActive(false);
+        levelChooser.gameObject.SetActive(false);
+        menuButtons.SetActive(true);
     }
     
     public void CloseMenu()
