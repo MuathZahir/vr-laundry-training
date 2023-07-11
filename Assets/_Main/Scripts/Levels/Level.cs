@@ -53,9 +53,9 @@ public class Level : MonoBehaviour
         }
     }
 
-    public Vector3 GetTeleportPosition()
+    public Transform GetTeleportTransform()
     {
-        return teleportPoint.position;
+        return teleportPoint;
     }
 }
 

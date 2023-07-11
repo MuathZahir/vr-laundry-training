@@ -180,17 +180,7 @@ namespace Oculus.Interaction
             float signedAngle =
                 Vector3.SignedAngle(previousVectorInWorldSpace, targetVector, rotationAxis);
 
-            _relativeAngle += signedAngle;
-
-            _constrainedRelativeAngle = _relativeAngle;
-            if (Constraints.MinAngle.Constrain)
-            {
-                _constrainedRelativeAngle = Mathf.Max(_constrainedRelativeAngle, Constraints.MinAngle.Value);
-            }
-            if (Constraints.MaxAngle.Constrain)
-            {
-                _constrainedRelativeAngle = Mathf.Min(_constrainedRelativeAngle, Constraints.MaxAngle.Value);
-            }
+            UpdateAngle(_relativeAngle + signedAngle);
 
             Quaternion deltaRotation = Quaternion.AngleAxis(_constrainedRelativeAngle - _startAngle, rotationAxis);
 
@@ -210,6 +200,21 @@ namespace Oculus.Interaction
 
         public void EndTransform() { }
 
+        public void UpdateAngle(float angle)
+        {
+            _relativeAngle = angle;
+            _constrainedRelativeAngle = _relativeAngle;
+            
+            if (Constraints.MinAngle.Constrain)
+            {
+                _constrainedRelativeAngle = Mathf.Max(_constrainedRelativeAngle, Constraints.MinAngle.Value);
+            }
+            if (Constraints.MaxAngle.Constrain)
+            {
+                _constrainedRelativeAngle = Mathf.Min(_constrainedRelativeAngle, Constraints.MaxAngle.Value);
+            }
+        }
+        
         #region Inject
 
         public void InjectOptionalPivotTransform(Transform pivotTransform)

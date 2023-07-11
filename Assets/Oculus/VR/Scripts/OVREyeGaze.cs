@@ -80,7 +80,7 @@ public class OVREyeGaze : MonoBehaviour
 			 "WorldSpace: Tracking mode will convert the eye pose from tracking space to world space.\n" +
 			 "TrackingSpace: Track eye is relative to OVRCameraRig. This is raw pose information from VR tracking space.")]
 	public EyeTrackingMode TrackingMode;
-
+    
     private Quaternion _initialRotationOffset;
     private Transform _viewTransform;
     private const OVRPermissionsRequester.Permission EyeTrackingPermission = OVRPermissionsRequester.Permission.EyeTracking;
@@ -210,7 +210,11 @@ public class OVREyeGaze : MonoBehaviour
         _viewTransform.parent = transform.parent;
         _initialRotationOffset = Quaternion.Inverse(_viewTransform.rotation) * transform.rotation;
     }
-
+    
+    public void SetHeadRotation(float eulerY)
+    {
+        _viewTransform.localEulerAngles = new Vector3(0, eulerY, 0);
+    }
 
     /// <summary>
     /// List of eyes

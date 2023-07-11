@@ -32,7 +32,7 @@ public class WelcomePages : MonoBehaviour
         // bubbleMenu.IsLevelChooserActive(true);
         // bubbleMenu.IsInfoPageActive(true);
         
-        LevelManager.Instance.MoveToLevel(0);
+        LevelManager.Instance.MoveToLevel(LevelManager.Instance.StartLevel);
     }
     
 }

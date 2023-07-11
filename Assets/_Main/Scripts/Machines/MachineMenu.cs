@@ -8,14 +8,14 @@ public class MachineMenu : MonoBehaviour
     
     private int currentPage = 0;
     
-    public void NextPage()
+    public virtual void NextPage()
     {
         menuPages[currentPage].gameObject.SetActive(false);
         currentPage++;
         menuPages[currentPage].gameObject.SetActive(true);
     }
 
-    public void RestartMenu()
+    public virtual void RestartMenu()
     {
         currentPage = 0;
         foreach (var page in menuPages)

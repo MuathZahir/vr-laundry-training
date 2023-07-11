@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public static event Action OnChangeLevel;
     public static event Action OnLevelComplete;
     public Level CurrentLevel => Levels[_currentLevel];
+    public int StartLevel;
     
     [SerializeField] private List<Level> Levels = new List<Level>();
     [SerializeField] private PlayerTeleporter playerTeleporter;
@@ -47,8 +48,8 @@ public class LevelManager : MonoBehaviour
         
         _currentLevel = levelNumber;
 
-        var position = Levels[levelNumber].GetTeleportPosition();
-        playerTeleporter.MoveToPosition(position);
+        var t = Levels[levelNumber].GetTeleportTransform();
+        playerTeleporter.MoveToTransform(t);
 
         Levels[levelNumber].StartLevel();
 

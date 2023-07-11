@@ -40,7 +40,7 @@ public class MenuEyeTrackingRay : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * rayLength);
