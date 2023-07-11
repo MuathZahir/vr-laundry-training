@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<Level> Levels = new List<Level>();
     [SerializeField] private PlayerTeleporter playerTeleporter;
     
-    private int _currentLevel = -1; // -1 means that we are in the main menu
+    private int _currentLevel = 4; // -1 means that we are in the main menu
     
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
         var t = Levels[levelNumber].GetTeleportTransform();
         playerTeleporter.MoveToTransform(t);
 
-        Levels[levelNumber].StartLevel();
+        Levels[levelNumber].ShowInstructionScreen();
 
         OnChangeLevel?.Invoke();
     }

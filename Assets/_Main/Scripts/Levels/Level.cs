@@ -14,6 +14,7 @@ public class Level : MonoBehaviour
     [SerializeField] private Transform teleportPoint;
     [SerializeField] private GameObject levelCompleteUI;
     [SerializeField] private Tutorial tutorial;
+    [SerializeField] private GameObject instructionScreen;
     [SerializeField] private List<LevelRestartAction> levelRestartActions = new List<LevelRestartAction>();
     
     private Animator animator;
@@ -29,6 +30,11 @@ public class Level : MonoBehaviour
         Info = gameObject.GetComponent<LevelInfo>();
     }
 
+    public void ShowInstructionScreen()
+    {
+        instructionScreen.SetActive(true);
+    }
+    
     public void StartLevel()
     {
         animator.SetTrigger(Start);
@@ -51,6 +57,9 @@ public class Level : MonoBehaviour
         {
             action.PerformAction();
         }
+        
+        State = LevelState.NotCompleted;
+        ClothesRemaining = clothesRequired;
     }
 
     public Transform GetTeleportTransform()

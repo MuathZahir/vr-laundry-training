@@ -13,6 +13,7 @@ public class Towel : MonoBehaviour
     
     [SerializeField] private Transform fixedPoints;
     [SerializeField] private Tutorial tutorial;
+    [SerializeField] private Mesh mesh;
 
     public UCCloth Cloth { get; private set; }
     public bool IsFolded { get; set; } = false;
@@ -41,6 +42,14 @@ public class Towel : MonoBehaviour
     public void OnPlaced()
     {
         OnPlacedTowel?.Invoke();
+    }
+    
+    [ContextMenu("Reset Towel")]
+    public void ResetTowel()
+    {
+        gameObject.GetComponent<MeshFilter>().mesh = mesh;
+        IsFolded = false;
+        FixedPoints.Clear();
     }
 
 }
