@@ -27,7 +27,8 @@ public class LaundryBasket : LaundryContainer
         Debug.Log("Removing laundry from basket");
         
         // Clothes.RemainingClothes++;
-        LevelManager.Instance.CurrentLevel.ClothesRemaining++;
+        if(IsCorrect(garment))
+            LevelManager.Instance.CurrentLevel.ClothesRemaining++;
         
         _clothes.Remove(garment);
     }
@@ -35,15 +36,16 @@ public class LaundryBasket : LaundryContainer
     public override void OnLaundryPlaced(GarmentInfo garment)
     {
         garment.OnPutDown -= OnLaundryPlaced;
+
+        if (_clothes.Contains(garment)) return;
         
         garment.SetParent(transform);
         
         var level = LevelManager.Instance.CurrentLevel;
         
         // Clothes.RemainingClothes--;
-        level.ClothesRemaining--;
-        
-        Debug.LogWarning("Clothes remaining: " + level.ClothesRemaining);
+        if(IsCorrect(garment))
+            level.ClothesRemaining--;
         
         // if (Clothes.RemainingClothes == 0)
         if (level.ClothesRemaining == 0)

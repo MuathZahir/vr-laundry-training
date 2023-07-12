@@ -37,17 +37,23 @@ public class Level : MonoBehaviour
     
     public void StartLevel()
     {
+        animator.ResetTrigger(Complete);
         animator.SetTrigger(Start);
         
         if(tutorial != null)
             tutorial.StartTutorial();
+    }
+
+    public void LeaveLevel()
+    {
+        animator.ResetTrigger(Start);
+        animator.SetTrigger(Complete);
     }
     
     [ContextMenu("Complete Level")]
     public void CompleteLevel()
     {
         State = LevelState.Completed;
-        animator.SetTrigger(Complete);
         levelCompleteUI.SetActive(true);
     }
 

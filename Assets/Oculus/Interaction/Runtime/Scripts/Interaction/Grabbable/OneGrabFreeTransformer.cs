@@ -18,7 +18,9 @@
  * limitations under the License.
  */
 
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Oculus.Interaction
 {
@@ -29,6 +31,8 @@ namespace Oculus.Interaction
     /// </summary>
     public class OneGrabFreeTransformer : MonoBehaviour, ITransformer
     {
+        public event Action<int> OnBeginTransform;
+        public event Action<int, IGrabbable> OnEndTransform;
 
         private IGrabbable _grabbable;
         private Pose _grabDeltaInLocalSpace;
@@ -44,6 +48,7 @@ namespace Oculus.Interaction
             var targetTransform = _grabbable.Transform;
             _grabDeltaInLocalSpace = new Pose(targetTransform.InverseTransformVector(grabPoint.position - targetTransform.position),
                                             Quaternion.Inverse(grabPoint.rotation) * targetTransform.rotation);
+            OnBeginTransform?.Invoke(1);
         }
 
         public void UpdateTransform()
@@ -54,6 +59,6 @@ namespace Oculus.Interaction
             targetTransform.position = grabPoint.position - targetTransform.TransformVector(_grabDeltaInLocalSpace.position);
         }
 
-        public void EndTransform() { }
+        public void EndTransform() { OnEndTransform?.Invoke(1, _grabbable); }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class IroningMachine : MonoBehaviour
 {
     [SerializeField] private ConveyorBelt conveyorBelt;
+    [SerializeField] private IroningMachineCollector collector;
 
     private AudioSource _audioSource;
 
@@ -22,5 +23,11 @@ public class IroningMachine : MonoBehaviour
     public void StopConveyorBelt()
     {
         conveyorBelt.IsOn = false;
+    }
+
+    public void Restart()
+    {
+        StopConveyorBelt();
+        collector.Restart();
     }
 }

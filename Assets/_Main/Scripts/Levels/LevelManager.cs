@@ -16,14 +16,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<Level> Levels = new List<Level>();
     [SerializeField] private PlayerTeleporter playerTeleporter;
     
-    private int _currentLevel = 4; // -1 means that we are in the main menu
+    private int _currentLevel = -1; // -1 means that we are in the main menu
     
     private void Awake()
     {
-        if(Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        Instance = this;
+
+        OnChangeLevel = null;
+        OnLevelComplete = null;
+        
+        // Set the random seed to make sure the cloth randomization is different every time
+        UnityEngine.Random.InitState(DateTime.Now.Millisecond);
     }
     
     private void Start()
@@ -45,6 +48,9 @@ public class LevelManager : MonoBehaviour
     {
         if (levelNumber >= Levels.Count)
             return;
+        
+        if(_currentLevel != -1)
+            CurrentLevel.LeaveLevel();
         
         _currentLevel = levelNumber;
 

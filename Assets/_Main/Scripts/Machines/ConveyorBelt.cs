@@ -32,8 +32,10 @@ public class ConveyorBelt : MonoBehaviour
     // Fixed update for physics
     void FixedUpdate()
     {
+        if(!IsOn) return;
+        
         // For every item on the belt, add force to it in the direction given
-        for (int i = 0; i <= onBelt.Count - 1; i++)
+        for (int i = 0; i < onBelt.Count; i++)
         {
             onBelt[i].GetComponent<Rigidbody>().AddForce(speed * SpeedMultiplier * direction);
         }

@@ -21,6 +21,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 namespace Oculus.Interaction
 {
@@ -30,6 +31,9 @@ namespace Oculus.Interaction
     /// </summary>
     public class TwoGrabFreeTransformer : MonoBehaviour, ITransformer
     {
+        public event Action<int> OnBeginTransform;
+        public event Action<int, IGrabbable> OnEndTransform;
+        
         // The active rotation for this transformation is tracked because it
         // cannot be derived each frame from the grab point information alone.
         private Quaternion _activeRotation;
@@ -92,6 +96,8 @@ namespace Oculus.Interaction
 
             _previousGrabPointA = new Pose(grabA.position, grabA.rotation);
             _previousGrabPointB = new Pose(grabB.position, grabB.rotation);
+            
+            OnBeginTransform?.Invoke(2);
         }
 
         public void UpdateTransform()
@@ -170,7 +176,7 @@ namespace Oculus.Interaction
             _activeScale = 1.0f;
         }
 
-        public void EndTransform() { }
+        public void EndTransform() { OnEndTransform?.Invoke(2, _grabbable); }
 
         #region Inject
 

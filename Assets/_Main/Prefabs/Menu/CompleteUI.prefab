@@ -156,7 +156,7 @@ MonoBehaviour:
   _spatialize: 1
   _loop: 0
   _chanceToPlay: 100
-  _playOnStart: 0
+  _playOnStart: 1
 --- !u!1 &212723440618071885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2389988238611781987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 0.32, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.24, y: 1.02, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []

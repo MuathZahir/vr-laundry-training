@@ -7,13 +7,13 @@ using UnityEngine;
 public class ReturnClothesAction : LevelRestartAction
 {
     [SerializeField] private Transform clothesParent;
-    private List<Transform> clothes = new List<Transform>();
+    private List<GarmentRespawner> clothes = new List<GarmentRespawner>();
 
     private void Start()
     {
         foreach (Transform child in clothesParent)
         {
-            clothes.Add(child);
+            clothes.Add(child.GetComponent<GarmentRespawner>());
         }
     }
 
@@ -21,9 +21,7 @@ public class ReturnClothesAction : LevelRestartAction
     {
         foreach (var garment in clothes)
         {
-            garment.SetParent(clothesParent);
-            // Assuming that the clothes have the respawn on drop script and that the threshold is less than 50
-            garment.localPosition = Vector3.zero;
+            garment.Respawn();
         }
     }
 }
