@@ -49,10 +49,7 @@ public class BubbleMenu : MonoBehaviour
     
     public void OnChooseButtonPose()
     {
-        if (_currentlySelectedButton != null)
-        {
-            _currentlySelectedButton.Click();
-        }
+        CloseMenu();
     }
     
     public void SetSelectedButton(BubbleButton button)

@@ -24,16 +24,20 @@ public class PlayerTeleporter : MonoBehaviour
 
         LeanTween.move(_playerOrigin.gameObject, targetPos + positionOffset, time);
         
-        var targetRotation = targetTransform.rotation;
-        
-        // Rotate player
-        Vector3 headForward = Vector3.ProjectOnPlane(_playerHead.forward, _playerOrigin.up).normalized;
-        Quaternion headFlatRotation = Quaternion.LookRotation(headForward, _playerOrigin.up);
-        Quaternion rotationOffset = Quaternion.Inverse(_playerOrigin.rotation) * headFlatRotation;
-        
-        var rotation = Quaternion.Inverse(rotationOffset) * targetRotation;
-        _playerOrigin.rotation = rotation;
-        Debug.Log("Player rotation: " + _playerOrigin.eulerAngles.y);
-        _eyeTracker.SetHeadRotation(-_playerOrigin.eulerAngles.y);
     }
+    //
+    // public void Rotate(Transform targetTransform)
+    // {
+    //     var targetRotation = targetTransform.rotation;
+    //     
+    //     // Rotate player
+    //     Vector3 headForward = Vector3.ProjectOnPlane(_playerHead.forward, _playerOrigin.up).normalized;
+    //     Quaternion headFlatRotation = Quaternion.LookRotation(headForward, _playerOrigin.up);
+    //     Quaternion rotationOffset = Quaternion.Inverse(_playerOrigin.rotation) * headFlatRotation;
+    //     
+    //     var rotation = Quaternion.Inverse(rotationOffset) * targetRotation;
+    //     _playerOrigin.rotation = rotation;
+    //     Debug.Log("Player rotation: " + _playerOrigin.eulerAngles.y);
+    //     _eyeTracker.SetHeadRotation(-_playerOrigin.eulerAngles.y);
+    // }
 }
