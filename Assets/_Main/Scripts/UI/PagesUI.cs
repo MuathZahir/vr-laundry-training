@@ -7,7 +7,7 @@ public class PagesUI : MonoBehaviour
 {
     private readonly List<Page> _pages = new List<Page>();
     
-    private void Start()
+    public void Initialize()
     {
         foreach (Transform page in transform)
         {

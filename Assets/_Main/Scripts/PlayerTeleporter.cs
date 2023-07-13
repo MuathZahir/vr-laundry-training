@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerTeleporter : MonoBehaviour
 {
     [SerializeField] private float speed;
 
-    [SerializeField] private Transform _playerOrigin;
-    [SerializeField] private Transform _playerHead;
-    [SerializeField] private OVREyeGaze _eyeTracker;
+    [SerializeField] private Transform userRig;
+    [SerializeField] private Transform playerOrigin;
+    [SerializeField] private Transform playerHead;
     
     public void MoveToTransform(Transform targetTransform)
     {
@@ -19,10 +20,10 @@ public class PlayerTeleporter : MonoBehaviour
         // Calculate the time it will take to move to the position
         var time = distance / speed;
         
-        var positionOffset = _playerOrigin.position - _playerHead.position;
+        var positionOffset = playerOrigin.position - playerHead.position;
         positionOffset.y = 0f;
 
-        LeanTween.move(_playerOrigin.gameObject, targetPos + positionOffset, time);
+        LeanTween.move(userRig.gameObject, targetPos, time);
         
     }
     //

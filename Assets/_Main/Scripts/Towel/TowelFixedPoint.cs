@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UCloth;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -124,6 +125,7 @@ public class TowelFixedPoint : MonoBehaviour
         
         snappingPoints.Remove(snapTarget);
         towel.FixedPoints.Remove(snapTarget);
+        snapTarget.gameObject.SetActive(false);
         
         towel.CheckIfFolded();
     }

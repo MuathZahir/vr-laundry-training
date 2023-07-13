@@ -10,6 +10,7 @@ public class BubbleMenu : MonoBehaviour
     [SerializeField] private GameObject menuButtons;
     [SerializeField] private LevelChooserUI levelChooser;
     [SerializeField] private LevelInfoUI infoPage;
+    [SerializeField] private PagesUI pages;
 
     [SerializeField] private GameObject tutorialText;
     
@@ -19,6 +20,7 @@ public class BubbleMenu : MonoBehaviour
 
     private void Start()
     {
+        pages.Initialize();
         menu.SetActive(false);
         
         // Make sure that the pages don't work in tutorial mode

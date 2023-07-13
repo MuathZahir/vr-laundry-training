@@ -1133,6 +1133,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pants Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 461669341431746942, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1366680198}
+    - target: {fileID: 3043303013190316100, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093858646668832935, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 5093858646668832935, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 6060009217608241914, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1366680198}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e13d28f7201af4f939d5faa32b370b, type: 3}
 --- !u!4 &92476193 stripped
@@ -2603,9 +2628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  _playerOrigin: {fileID: 4615441134820922946}
-  _playerHead: {fileID: 4615441134820922948}
-  _eyeTracker: {fileID: 716172401}
+  userRig: {fileID: 2127251197}
+  playerOrigin: {fileID: 4615441134820922946}
+  playerHead: {fileID: 4615441134820922948}
 --- !u!65 &173962692
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3472,6 +3497,85 @@ Transform:
   m_Father: {fileID: 578757117}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &213149202
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 2.6960597, y: 2.6960597}
+        m_Offset: {x: 0.35908395, y: 0.65806675}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.8209637, y: 1.8209637}
+        m_Offset: {x: 0.3102544, y: 0.709306}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 9e6f0e32317173a4c8de43ea0a5a7282, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: ae8d1ed63b1989d4f92524072b76f9e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.9936968
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.8155468
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &219306414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,6 +4881,30 @@ Transform:
   m_Father: {fileID: 120721221}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &304403720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655000067542265101, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 800817224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &304403727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304403720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779ddd1a52131a45adf66fc2d65b927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 304403720}
+  heldCloth: {fileID: 0}
+  idleCloth: {fileID: 0}
+  local: 1
+  respawnBelow: -0.3
+  isGarment: 0
 --- !u!1 &310610678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4967,188 @@ Transform:
   m_Father: {fileID: 120721221}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &315552150
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Clothes
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClearCoatMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloth_Albedo:
+        m_Texture: {fileID: 2800000, guid: d65b64a9f3fa4634eb964f39fb5c1109, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloth_Metallic:
+        m_Texture: {fileID: 2800000, guid: ceec25ecf3f0d844680387b61343322a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloth_Normal:
+        m_Texture: {fileID: 2800000, guid: 607648e05efd669498fe4e3fed32eec7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Dirt_Mask:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1.201109, y: 1.201109}
+        m_Offset: {x: 0.16994822, y: 0.21456337}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.7077883, y: 1.7077883}
+        m_Offset: {x: 0.32114536, y: 0.23111713}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Stain_Mask:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 10af3e6aecb6ac549a4adc8e6434e65a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _AlphaCutoff: 0.5
+    - _Blend: 0
+    - _BlendOp: 0
+    - _BumpScale: 1
+    - _CastShadows: 1
+    - _ClearCoat: 0
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
+    - _DetailNormalMapScale: 1
+    - _DirtOpacity: 0.8867336
+    - _Dirt_Opacity: 1
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Inflation: 0.01
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.005
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Stain_Opacity: 1
+    - _StainsOpacity: 0.59362096
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    m_Colors:
+    - _BaseColor: {r: 0.745283, g: 0.4747826, b: 0.10827694, a: 1}
+    - _Color: {r: 0.745283, g: 0.4747826, b: 0.10827691, a: 1}
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _Dirt_Color: {r: 1, g: 0.55947495, b: 0.32452828, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _StainColor: {r: 0.2, g: 0.4, b: 0, a: 1}
+    - _Stain_Color: {r: 1, g: 0.38196492, b: 0.3339622, a: 0.7176471}
+  m_BuildTextureStacks: []
 --- !u!1 &316432512
 GameObject:
   m_ObjectHideFlags: 0
@@ -5466,6 +5776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -5776,6 +6091,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 365460485}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &367485657
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1.1935484, y: 1.1935484}
+        m_Offset: {x: 0.92923677, y: 0.5772254}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 2.564529, y: 2.564529}
+        m_Offset: {x: 0.68425035, y: 0.8318304}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 8fabdf5d4b5c1974c96176fec4b2acc6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.7109407
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.65008616
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &369251619
 GameObject:
   m_ObjectHideFlags: 0
@@ -6371,6 +6765,85 @@ Transform:
   m_Father: {fileID: 578757117}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &441271071
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1.9012196, y: 1.9012196}
+        m_Offset: {x: 0.8807918, y: 0.6344793}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.6376998, y: 1.6376998}
+        m_Offset: {x: 0.23561263, y: 0.7080877}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 9e6f0e32317173a4c8de43ea0a5a7282, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: ae8d1ed63b1989d4f92524072b76f9e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.547756
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.52269506
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &446334736
 GameObject:
   m_ObjectHideFlags: 0
@@ -6621,6 +7094,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 523071724}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &450890731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655000067599758102, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 800817224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &450890738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450890731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779ddd1a52131a45adf66fc2d65b927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 450890731}
+  heldCloth: {fileID: 0}
+  idleCloth: {fileID: 0}
+  local: 1
+  respawnBelow: -0.3
+  isGarment: 0
 --- !u!1 &452611225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6652,6 +7149,85 @@ Transform:
   m_Father: {fileID: 120721221}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &455867774
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1.4010122, y: 1.4010122}
+        m_Offset: {x: 0.47334033, y: 0.48822516}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.0112872, y: 1.0112872}
+        m_Offset: {x: 0.68440056, y: 0.78561366}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 10af3e6aecb6ac549a4adc8e6434e65a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.5546768
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.79406273
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &457506046
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,6 +7545,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 479360712}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &481385408
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 0.68596023, y: 0.68596023}
+        m_Offset: {x: 0.5994056, y: 0.07021046}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 2.0369136, y: 2.0369136}
+        m_Offset: {x: 0.92280686, y: 0.20616376}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 10af3e6aecb6ac549a4adc8e6434e65a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.79882264
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.59744525
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &487615286
 GameObject:
   m_ObjectHideFlags: 0
@@ -9269,6 +9924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial: {fileID: 1677156431}
   towelTemplate: {fileID: 697800101}
+  instantiate: 1
 --- !u!65 &645073694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9960,6 +10616,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -10466,6 +11127,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2004909359}
     m_Modifications:
+    - target: {fileID: 216512020682370844, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410037112021454374, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 213149202}
     - target: {fileID: 3410037113036745342, guid: 5e40688eae4df3741b0a5cec3e69c683,
         type: 3}
       propertyPath: m_RootOrder
@@ -10474,17 +11145,17 @@ PrefabInstance:
     - target: {fileID: 3410037113036745342, guid: 5e40688eae4df3741b0a5cec3e69c683,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.192
+      value: -0.171
       objectReference: {fileID: 0}
     - target: {fileID: 3410037113036745342, guid: 5e40688eae4df3741b0a5cec3e69c683,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.605
+      value: 0.313
       objectReference: {fileID: 0}
     - target: {fileID: 3410037113036745342, guid: 5e40688eae4df3741b0a5cec3e69c683,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.009
+      value: -0.034
       objectReference: {fileID: 0}
     - target: {fileID: 3410037113036745342, guid: 5e40688eae4df3741b0a5cec3e69c683,
         type: 3}
@@ -10526,6 +11197,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shirt Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8037740117792993279, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 8037740117792993279, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 9017250134948023714, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 213149202}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e40688eae4df3741b0a5cec3e69c683, type: 3}
 --- !u!4 &689546619 stripped
@@ -10981,18 +11667,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 716172398}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &716172401 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 446824685294547764, guid: 1b9e4c3b8f6b1774d972ea02b8ca606c,
-    type: 3}
-  m_PrefabInstance: {fileID: 716172398}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28dd40a6d175d01498e0477360d6c070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &724158201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11318,6 +11992,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -11386,6 +12065,11 @@ PrefabInstance:
       propertyPath: twoGrabFreeTransformer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4535643956344010164, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 455867774}
     - target: {fileID: 5835930060561680323, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: _twoGrabTransformer
@@ -11621,6 +12305,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7818406951960950320, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 455867774}
     - target: {fileID: 7836168551154903621, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: overrideInfo
@@ -12477,6 +13166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -12525,6 +13219,16 @@ PrefabInstance:
       propertyPath: teamData.colliderList.Array.data[9]
       value: 
       objectReference: {fileID: 813016978}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.data[10]
+      value: 
+      objectReference: {fileID: 1669386641}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.data[11]
+      value: 
+      objectReference: {fileID: 1115900943}
     - target: {fileID: 1755097467098673538, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -13241,6 +13945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167aba6179908bb498fa0ff73e9d02aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clothesParent: {fileID: 364187410}
   clothesRequired: 10
   teleportPoint: {fileID: 1891147731}
   levelCompleteUI: {fileID: 905499464}
@@ -13251,6 +13956,7 @@ MonoBehaviour:
   - {fileID: 793856327}
   - {fileID: 793856326}
   - {fileID: 2116860068}
+  - {fileID: 850256090}
 --- !u!4 &793856322
 Transform:
   m_ObjectHideFlags: 0
@@ -13289,6 +13995,7 @@ GameObject:
   - component: {fileID: 3742961354372096832}
   - component: {fileID: 3742961354372096833}
   - component: {fileID: 2116860068}
+  - component: {fileID: 850256090}
   m_Layer: 0
   m_Name: 3-Load/Unload in Washing Machine
   m_TagString: Untagged
@@ -13323,6 +14030,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothesParent: {fileID: 364187410}
+--- !u!1 &795515923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655000067780284083, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 800817224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &795515930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795515923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779ddd1a52131a45adf66fc2d65b927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 795515923}
+  heldCloth: {fileID: 0}
+  idleCloth: {fileID: 0}
+  local: 1
+  respawnBelow: -0.3
+  isGarment: 0
 --- !u!1 &798853750
 GameObject:
   m_ObjectHideFlags: 0
@@ -13538,6 +14269,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128582694}
     m_Modifications:
+    - target: {fileID: 6492331288719916429, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -462981019419857548, guid: 0c490a7e9dcc5ef4fbdd109ba573d953,
+        type: 3}
     - target: {fileID: 7421210704833849490, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
         type: 3}
       propertyPath: m_Name
@@ -13589,6 +14326,11 @@ PrefabInstance:
       propertyPath: cubeColliders.Array.data[4]
       value: 
       objectReference: {fileID: 104281457}
+    - target: {fileID: 7655000067154483575, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+        type: 3}
+      propertyPath: materialProperties.energyConservation
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7905716741672727080, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
         type: 3}
       propertyPath: m_RootOrder
@@ -13644,6 +14386,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9078574744325654855, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6478536213147159724, guid: 0c490a7e9dcc5ef4fbdd109ba573d953,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a1ca9d307566ab44ad1320ebc3e84c0, type: 3}
 --- !u!1 &804745722
@@ -13732,6 +14480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167aba6179908bb498fa0ff73e9d02aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clothesParent: {fileID: 2049626733}
   clothesRequired: 3
   teleportPoint: {fileID: 1908402099}
   levelCompleteUI: {fileID: 234019950}
@@ -13869,6 +14618,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -13917,6 +14671,16 @@ PrefabInstance:
       propertyPath: teamData.colliderList.Array.data[9]
       value: 
       objectReference: {fileID: 813016978}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.data[10]
+      value: 
+      objectReference: {fileID: 1669386641}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.data[11]
+      value: 
+      objectReference: {fileID: 1115900943}
     - target: {fileID: 3044272432270216748, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: onBothHandsReleased.m_PersistentCalls.m_Calls.Array.size
@@ -14519,6 +15283,19 @@ Transform:
   m_Father: {fileID: 1210798979}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &850256090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793856323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167d09bcef10f5847960a3fe771607cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothesParent: {fileID: 364187410}
 --- !u!1 &851069985
 GameObject:
   m_ObjectHideFlags: 0
@@ -15348,6 +16125,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 913464372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &924534562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655000067160574612, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 800817224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &924534569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924534562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779ddd1a52131a45adf66fc2d65b927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 924534562}
+  heldCloth: {fileID: 0}
+  idleCloth: {fileID: 0}
+  local: 1
+  respawnBelow: -0.3
+  isGarment: 0
 --- !u!1 &924821896
 GameObject:
   m_ObjectHideFlags: 0
@@ -17650,6 +18451,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pants Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 461669341431746942, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 441271071}
+    - target: {fileID: 6060009217608241914, guid: 51e13d28f7201af4f939d5faa32b370b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 441271071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e13d28f7201af4f939d5faa32b370b, type: 3}
 --- !u!4 &1091894096 stripped
@@ -17672,6 +18483,41 @@ PrefabInstance:
     - target: {fileID: 1964951633, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1895768814}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Garment, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
@@ -17728,6 +18574,11 @@ PrefabInstance:
       propertyPath: teamData.colliderList.Array.data[9]
       value: 
       objectReference: {fileID: 813016978}
+    - target: {fileID: 5835930060561680323, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _transferOnSecondSelection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7818406950946181736, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: m_RootOrder
@@ -17800,6 +18651,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1755097466092228928, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+    - {fileID: 3044272432270216748, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+    - {fileID: 6721551595761951985, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
 --- !u!4 &1096552311 stripped
 Transform:
@@ -18150,6 +19003,56 @@ Transform:
   m_Father: {fileID: 578757117}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1115900941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115900942}
+  - component: {fileID: 1115900943}
+  m_Layer: 0
+  m_Name: Collider (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1115900942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115900941}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.485, y: 1.151, z: -1.317}
+  m_LocalScale: {x: 1.3599999, y: 1.1126498, z: 0.093800016}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1742446306}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1115900943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115900941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ec582e8d6cb504fb1d0160568835a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 0
+  center: {x: 0, y: 0, z: 2.19}
+  axis: 1
+  length: 1
+  startRadius: 0.149
+  endRadius: 0.149
 --- !u!114 &1117986480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18920,7 +19823,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1742446306}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1160058048
 BoxCollider:
@@ -20086,6 +20989,14 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 820211911, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 820211911, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 820211911, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
       propertyPath: stainColors.Array.size
       value: 11
       objectReference: {fileID: 0}
@@ -20395,6 +21306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -20462,6 +21378,16 @@ PrefabInstance:
         type: 3}
       propertyPath: twoGrabFreeTransformer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535643956344010164, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1606911985}
+    - target: {fileID: 4671175732712199946, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5835930060561680323, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
@@ -20698,6 +21624,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7818406951960950320, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1606911985}
     - target: {fileID: 7836168551154903621, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: overrideInfo
@@ -21528,6 +22459,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2004909359}
     m_Modifications:
+    - target: {fileID: 2427464699200593135, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 2427464699200593135, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 3681808683403607730, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 481385408}
+    - target: {fileID: 5565016253968161804, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7019210671395428718, guid: 8478eea62ba48254684109857ff5fdd3,
         type: 3}
       propertyPath: m_RootOrder
@@ -21588,6 +22539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TShirt Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7019210672561192246, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 481385408}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8478eea62ba48254684109857ff5fdd3, type: 3}
 --- !u!4 &1268022825 stripped
@@ -21603,6 +22559,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2004909359}
     m_Modifications:
+    - target: {fileID: 216512020682370844, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410037112021454374, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1488295205}
     - target: {fileID: 3410037113036745342, guid: 5e40688eae4df3741b0a5cec3e69c683,
         type: 3}
       propertyPath: m_RootOrder
@@ -21663,6 +22629,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shirt Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8037740117792993279, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 8037740117792993279, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 9017250134948023714, guid: 5e40688eae4df3741b0a5cec3e69c683,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1488295205}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e40688eae4df3741b0a5cec3e69c683, type: 3}
 --- !u!4 &1273474992 stripped
@@ -23032,6 +24013,85 @@ RectTransform:
   m_AnchoredPosition: {x: -0.028, y: -0.011}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &1366680198
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 1.1909598, y: 1.1909598}
+        m_Offset: {x: 0.5091178, y: 0.4737367}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 2.5840101, y: 2.5840101}
+        m_Offset: {x: 0.5357756, y: 0.09846294}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: abff160957991ba4a95cfacfedfa1ef2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: e8b0d5ae91b15514cbdf61dd8be1abd7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.8969719
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.82896197
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1368894859
 GameObject:
   m_ObjectHideFlags: 0
@@ -23849,6 +24909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167aba6179908bb498fa0ff73e9d02aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clothesParent: {fileID: 1878469271}
   clothesRequired: 10
   teleportPoint: {fileID: 1071949984}
   levelCompleteUI: {fileID: 820702647}
@@ -24671,6 +25732,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2004909359}
     m_Modifications:
+    - target: {fileID: 2427464699200593135, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 2427464699200593135, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 3681808683403607730, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 315552150}
+    - target: {fileID: 5565016253968161804, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7019210671395428718, guid: 8478eea62ba48254684109857ff5fdd3,
         type: 3}
       propertyPath: m_RootOrder
@@ -24731,6 +25812,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TShirt Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7019210672561192246, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 315552150}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8478eea62ba48254684109857ff5fdd3, type: 3}
 --- !u!4 &1457569761 stripped
@@ -24929,6 +26015,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1484789402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655000066392029026, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 800817224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1484789409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484789402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779ddd1a52131a45adf66fc2d65b927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 1484789402}
+  heldCloth: {fileID: 0}
+  idleCloth: {fileID: 0}
+  local: 1
+  respawnBelow: -0.3
+  isGarment: 0
 --- !u!1 &1485005145
 GameObject:
   m_ObjectHideFlags: 0
@@ -25096,6 +26206,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488052767}
   m_CullTransparentMesh: 1
+--- !u!21 &1488295205
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 2.37236, y: 2.37236}
+        m_Offset: {x: 0.8267753, y: 0.7843983}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.0950835, y: 1.0950835}
+        m_Offset: {x: 0.02856195, y: 0.5657447}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 9e6f0e32317173a4c8de43ea0a5a7282, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: ae8d1ed63b1989d4f92524072b76f9e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.8989848
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.8940229
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1491568520
 GameObject:
   m_ObjectHideFlags: 0
@@ -25976,8 +27165,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3478882, y: 1.9062084, z: 3.0022297}
-  m_Center: {x: -0.07955723, y: 2.693151, z: 0.77937514}
+  m_Size: {x: 2.3478882, y: 1.9062084, z: 3.3849726}
+  m_Center: {x: -0.07955725, y: 2.693151, z: 0.97074646}
 --- !u!114 &1534844959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27125,6 +28314,41 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1587147893}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Garment, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: teamData.colliderList.Array.size
@@ -27180,6 +28404,11 @@ PrefabInstance:
       propertyPath: teamData.colliderList.Array.data[9]
       value: 
       objectReference: {fileID: 813016978}
+    - target: {fileID: 5835930060561680323, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _transferOnSecondSelection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7818406950946181736, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: m_RootOrder
@@ -27242,6 +28471,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1755097466092228928, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+    - {fileID: 3044272432270216748, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+    - {fileID: 6721551595761951985, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
 --- !u!4 &1587147892 stripped
 Transform:
@@ -27249,6 +28480,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1587147891}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587147893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4671175732712199946, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1587147891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13330805ec051f3478a04a9cb725dcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1589628504
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27301,6 +28544,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2004909359}
     m_Modifications:
+    - target: {fileID: 2427464699200593135, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 2427464699200593135, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
+    - target: {fileID: 3681808683403607730, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2133500891}
+    - target: {fileID: 5565016253968161804, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7019210671395428718, guid: 8478eea62ba48254684109857ff5fdd3,
         type: 3}
       propertyPath: m_RootOrder
@@ -27361,6 +28624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TShirt Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7019210672561192246, guid: 8478eea62ba48254684109857ff5fdd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2133500891}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8478eea62ba48254684109857ff5fdd3, type: 3}
 --- !u!4 &1597244993 stripped
@@ -27557,6 +28825,85 @@ Transform:
   m_Father: {fileID: 1345681437}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1606911985
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 2.1978474, y: 2.1978474}
+        m_Offset: {x: 0.6101119, y: 0.73404884}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.7943479, y: 1.7943479}
+        m_Offset: {x: 0.14146936, y: 0.28215188}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 10af3e6aecb6ac549a4adc8e6434e65a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.9402916
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.9338583
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1615080715
 GameObject:
   m_ObjectHideFlags: 0
@@ -28511,6 +29858,56 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1669386639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669386640}
+  - component: {fileID: 1669386641}
+  m_Layer: 0
+  m_Name: Collider (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1669386640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669386639}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.489, y: 1.151, z: -1.317}
+  m_LocalScale: {x: 1.3599999, y: 1.1126498, z: 0.093800016}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1742446306}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1669386641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669386639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ec582e8d6cb504fb1d0160568835a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 0
+  center: {x: 0, y: 0, z: 2.19}
+  axis: 1
+  length: 1
+  startRadius: 0.149
+  endRadius: 0.149
 --- !u!1 &1677156428
 GameObject:
   m_ObjectHideFlags: 0
@@ -28849,7 +30246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702395952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55, y: 0, z: 12.861}
+  m_LocalPosition: {x: -0.55, y: 0.06, z: 12.861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29816,6 +31213,8 @@ Transform:
   - {fileID: 929488235}
   - {fileID: 413223859}
   - {fileID: 813016979}
+  - {fileID: 1669386640}
+  - {fileID: 1115900942}
   - {fileID: 1160058047}
   m_Father: {fileID: 8096561988099550474}
   m_RootOrder: 2
@@ -31114,6 +32513,30 @@ Transform:
   m_Father: {fileID: 1279663993}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1853760644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655000067037309536, guid: 8a1ca9d307566ab44ad1320ebc3e84c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 800817224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853760651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853760644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779ddd1a52131a45adf66fc2d65b927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 1853760644}
+  heldCloth: {fileID: 0}
+  idleCloth: {fileID: 0}
+  local: 1
+  respawnBelow: -0.3
+  isGarment: 0
 --- !u!1 &1855607614
 GameObject:
   m_ObjectHideFlags: 0
@@ -31785,6 +33208,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1895768814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4671175732712199946, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1096552310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13330805ec051f3478a04a9cb725dcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1896697058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34340,6 +35775,41 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2072343065}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Garment, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474351756707550305, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: teamData.colliderList.Array.size
@@ -34395,6 +35865,11 @@ PrefabInstance:
       propertyPath: teamData.colliderList.Array.data[9]
       value: 
       objectReference: {fileID: 813016978}
+    - target: {fileID: 5835930060561680323, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: _transferOnSecondSelection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7818406950946181736, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: m_RootOrder
@@ -34457,6 +35932,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1755097466092228928, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+    - {fileID: 3044272432270216748, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+    - {fileID: 6721551595761951985, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
 --- !u!4 &2072343064 stripped
 Transform:
@@ -34464,6 +35941,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2072343063}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2072343065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4671175732712199946, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2072343063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13330805ec051f3478a04a9cb725dcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2079794023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34479,6 +35968,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 820211911, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+      propertyPath: shader
+      value: 
+      objectReference: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+    - target: {fileID: 820211911, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
+      propertyPath: templateMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
     - target: {fileID: 820211911, guid: 55ed3c3cd6376464bae708fe04b25dd8, type: 3}
       propertyPath: stainColors.Array.size
       value: 11
@@ -34789,6 +36286,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: clothParams.drag.startValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -34856,6 +36363,16 @@ PrefabInstance:
         type: 3}
       propertyPath: twoGrabFreeTransformer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535643956344010164, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 367485657}
+    - target: {fileID: 4671175732712199946, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5835930060561680323, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
@@ -35092,6 +36609,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7818406951960950320, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 367485657}
     - target: {fileID: 7836168551154903621, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: overrideInfo
@@ -35436,6 +36958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167aba6179908bb498fa0ff73e9d02aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clothesParent: {fileID: 2004909359}
   clothesRequired: 10
   teleportPoint: {fileID: 594787476}
   levelCompleteUI: {fileID: 8097003316471951586}
@@ -35586,6 +37109,7 @@ MonoBehaviour:
   menuButtons: {fileID: 500843675142415158}
   levelChooser: {fileID: 8947230975246195467}
   infoPage: {fileID: 6903563915563865734}
+  pages: {fileID: 6277440148812618567}
   tutorialText: {fileID: 798853750}
 --- !u!1001 &2119853248
 PrefabInstance:
@@ -35890,7 +37414,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127251196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb5f7ea891cf39f4099090c8b3964b44, type: 3}
   m_Name: 
@@ -35908,6 +37432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167aba6179908bb498fa0ff73e9d02aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clothesParent: {fileID: 575557947}
   clothesRequired: 3
   teleportPoint: {fileID: 224982483}
   levelCompleteUI: {fileID: 1725555014}
@@ -35962,6 +37487,85 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!21 &2133500891
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: S_Cloth
+  m_Shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_1:
+        m_Texture: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+        m_Scale: {x: 2.121433, y: 2.121433}
+        m_Offset: {x: 0.7084582, y: 0.30986184}
+    - _Mask_2:
+        m_Texture: {fileID: 2800000, guid: eccc9d1b5df64be438b89d19db61f4da, type: 3}
+        m_Scale: {x: 1.758234, y: 1.758234}
+        m_Offset: {x: 0.29576725, y: 0.3193311}
+    - _T_M_1_Cloth_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: fe82c9f914b10f040a98b9b0f587acd2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_1_Cloth_MetallicSmoothness:
+        m_Texture: {fileID: 2800000, guid: 3c567b4e44e6c4d45b1eba742d62fa29, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Cloth_1_Normal:
+        m_Texture: {fileID: 2800000, guid: 9b21b0ac6f65ba1489ebefce07e5c8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _T_M_Dirt_Roughness:
+        m_Texture: {fileID: 2800000, guid: fbfadaa3b9ad5984fa76bdc792fece7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e1d0568b21214424fabf92f3235bc672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DirtOpacity: 0.90688145
+    - _EnvironmentReflections: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SpecularHighlights: 1
+    - _StainsOpacity: 0.510929
+    m_Colors:
+    - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &2133895111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36439,6 +38043,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
+      propertyPath: teamData.colliderList.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
       propertyPath: teamData.colliderList.Array.data[0]
       value: 
       objectReference: {fileID: 586434217}
@@ -36487,6 +38096,16 @@ PrefabInstance:
       propertyPath: teamData.colliderList.Array.data[9]
       value: 
       objectReference: {fileID: 813016978}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.data[10]
+      value: 
+      objectReference: {fileID: 1669386641}
+    - target: {fileID: 1755097466182871488, guid: 55ed3c3cd6376464bae708fe04b25dd8,
+        type: 3}
+      propertyPath: teamData.colliderList.Array.data[11]
+      value: 
+      objectReference: {fileID: 1115900943}
     - target: {fileID: 1755097467098673538, guid: 55ed3c3cd6376464bae708fe04b25dd8,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -44111,7 +45730,7 @@ MonoBehaviour:
   _alphaCutoutThreshold: 0.5
   _canvasMesh: {fileID: 9122438214922999598}
   _runtimeOffset: {x: 0, y: 0, z: 0}
-  _enableSuperSampling: 1
+  _enableSuperSampling: 0
   _doUnderlayAntiAliasing: 0
   _emulateWhileInEditor: 1
 --- !u!1 &2062839432971438479
@@ -44912,6 +46531,61 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6277440148812618566}
     m_Modifications:
+    - target: {fileID: 3746115697120081257, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746115697120081257, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746115697120081257, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 377.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746115697120081257, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 188.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746115697120081257, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -123.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495237355991842, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 247.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495238206882611, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495238206882611, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495238206882611, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 622.6978
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495238206882611, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 327.3489
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495238206882611, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24
+      objectReference: {fileID: 0}
     - target: {fileID: 7237495238830867992, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -44971,6 +46645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237495238830867996, guid: 6a5c446388f15db4b8d0af3eaa058a7a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a5c446388f15db4b8d0af3eaa058a7a, type: 3}
@@ -54000,7 +55679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5772302175871795692}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.032322645, y: 0.884, z: -0.03606987}
+  m_LocalPosition: {x: 0.032322645, y: 1.39, z: -0.03606987}
   m_LocalScale: {x: 0.19999999, y: 0.19999997, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children:

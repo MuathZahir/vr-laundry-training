@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
@@ -24,9 +25,6 @@ public class LevelManager : MonoBehaviour
 
         OnChangeLevel = null;
         OnLevelComplete = null;
-        
-        // Set the random seed to make sure the cloth randomization is different every time
-        UnityEngine.Random.InitState(DateTime.Now.Millisecond);
     }
     
     private void Start()
@@ -57,6 +55,8 @@ public class LevelManager : MonoBehaviour
         var t = Levels[levelNumber].GetTeleportTransform();
         playerTeleporter.MoveToTransform(t);
 
+        CurrentLevel.EnterLevel();
+        
         Levels[levelNumber].ShowInstructionScreen();
 
         OnChangeLevel?.Invoke();

@@ -86,11 +86,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_M_1_Cloth_AlbedoTransparency:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d65b64a9f3fa4634eb964f39fb5c1109, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_M_1_Cloth_MetallicSmoothness:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ceec25ecf3f0d844680387b61343322a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _T_M_Cloth_1_Normal:
@@ -159,5 +159,5 @@ Material:
     - _DirtColor: {r: 0.38823527, g: 0.34901956, b: 0.32156855, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _StainColor: {r: 0.29019606, g: 0.29411766, b: 0.17647055, a: 1}
+    - _StainColor: {r: 0.9056604, g: 0.38192645, b: 0.17429687, a: 1}
   m_BuildTextureStacks: []

@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 46415c73152a4034189687d7a74856b2, type: 3}
+  templateMat: {fileID: 2100000, guid: 38227231bc37a8642b86688a62736c92, type: 2}
   heldClothRenderer: {fileID: 3555490202677788405}
   idleClothRenderer: {fileID: 7144666239034867057}
   garmentMaterialTextures:
@@ -411,8 +412,9 @@ MonoBehaviour:
   root: {fileID: 7236329531804602751}
   heldCloth: {fileID: 6576250701322987861}
   idleCloth: {fileID: 1809602843803580933}
-  respawnBelow: -0.3
   local: 1
+  respawnBelow: -0.3
+  isGarment: 1
 --- !u!1 &3555490201665269475
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,13 +537,13 @@ MonoBehaviour:
   clothParams:
     algorithm: 1
     radius:
-      startValue: 0.03
-      endValue: 0.03
+      startValue: 0.001
+      endValue: 0.001
       useEndValue: 1
       curveValue: 0
       useCurveValue: 0
     mass:
-      startValue: 15
+      startValue: 12.5
       endValue: 1
       useEndValue: 1
       curveValue: -0.4
@@ -640,7 +642,7 @@ MonoBehaviour:
       curveValue: 0
       useCurveValue: 0
     useBendDistance: 0
-    bendDistanceMaxCount: 3
+    bendDistanceMaxCount: 1
     bendDistanceStiffness:
       startValue: 0.5
       endValue: 0.2
@@ -651,7 +653,7 @@ MonoBehaviour:
     nearDistanceMaxCount: 3
     nearDistanceMaxDepth: 1
     nearDistanceLength:
-      startValue: 0.05
+      startValue: 0.078
       endValue: 0.05
       useEndValue: 1
       curveValue: 0
@@ -670,11 +672,11 @@ MonoBehaviour:
       curveValue: 0
       useCurveValue: 0
     restoreRotation2:
-      startValue: 0.08
-      endValue: 0.095
+      startValue: 0.664
+      endValue: 0.073
       useEndValue: 1
-      curveValue: 0
-      useCurveValue: 0
+      curveValue: -1
+      useCurveValue: 1
     restoreRotationVelocityInfluence: 0.2
     restoreRotationVelocityInfluence2: 0.2
     useSpring: 0
