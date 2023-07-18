@@ -109,6 +109,19 @@ namespace MagicaCloth
             }
         }
 
+        public void ClearCollidersEditor()
+        {
+            TeamData.ClearCollidersEditor();
+        }
+        
+        public void AddColliderEditor(ColliderComponent collider)
+        {
+            if (collider)
+            {
+                TeamData.AddColliderEditor(collider);
+            }
+        }
+
         /// <summary>
         /// コライダーをチームから削除します
         /// Remove collider from the team.

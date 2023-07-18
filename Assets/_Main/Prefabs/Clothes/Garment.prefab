@@ -524,10 +524,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51609c7b517ea4cbe5867b57df38bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataHash: -1136511166
+  dataHash: 754680875
   dataVersion: 7
   teamData:
-    colliderList: []
+    colliderList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     penetrationIgnoreColliderList: []
     mergeAvatarCollider: 1
   userBlendWeight: 1
@@ -537,9 +561,9 @@ MonoBehaviour:
   clothParams:
     algorithm: 1
     radius:
-      startValue: 0.001
+      startValue: 0.047
       endValue: 0.001
-      useEndValue: 1
+      useEndValue: 0
       curveValue: 0
       useCurveValue: 0
     mass:
@@ -673,7 +697,7 @@ MonoBehaviour:
       useCurveValue: 0
     restoreRotation2:
       startValue: 0.664
-      endValue: 0.073
+      endValue: 0
       useEndValue: 1
       curveValue: -1
       useCurveValue: 1
@@ -730,8 +754,8 @@ MonoBehaviour:
       curveValue: 0
       useCurveValue: 0
     useCollision: 1
-    friction: 0.1
-    staticFriction: 0.03
+    friction: 0.001
+    staticFriction: 0.001
     usePenetration: 0
     penetrationMode: 1
     penetrationAxis: 5
@@ -756,9 +780,9 @@ MonoBehaviour:
       useCurveValue: 0
     useLineAvarageRotation: 1
     useFixedNonRotation: 0
-  clothParamDataHashList: 000000000000000000000000000000000000000000000000f61b9937000000000000000000000000ec37326f000000000000000000000000e153cba6000000000000000000000000000000000000000000000000f61b993700000000
+  clothParamDataHashList: 000000000000000000000000000000000000000000000000f61b9937000000000000000000000000ec37326f000000000000000000000000e153cba600000000e83d114b00000000000000000000000000000000f61b993700000000
   clothData: {fileID: 0}
-  clothDataHash: -866020214
+  clothDataHash: -865183190
   clothDataVersion: 5
   clothSelection: {fileID: 1059122251}
   clothSelectionHash: -818289352

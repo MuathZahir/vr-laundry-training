@@ -98,6 +98,17 @@ namespace MagicaCloth
                 addColliderList.Add(collider);
         }
 
+        public void AddColliderEditor(ColliderComponent collider)
+        {
+            if (collider && addColliderList.Contains(collider) == false)
+                colliderList.Add(collider);
+        }
+
+        public void ClearCollidersEditor()
+        {
+            colliderList.Clear();
+        }
+        
         /// <summary>
         /// ランタイム追加されたコライダーを管理リストから削除する
         /// </summary>
