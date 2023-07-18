@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance { get; private set; }
     public static event Action OnChangeLevel;
     public static event Action OnLevelComplete;
+    public static event Action OnLevelRestart;
     public Level CurrentLevel => Levels[_currentLevel];
     public int StartLevel;
     
@@ -25,26 +27,32 @@ public class LevelManager : MonoBehaviour
 
         OnChangeLevel = null;
         OnLevelComplete = null;
-    }
-    
-    private void Start()
-    {
+        OnLevelRestart = null;
     }
 
+    [ContextMenu("Complete current level")]
     public void LevelComplete()
     {
         CurrentLevel.CompleteLevel();
         OnLevelComplete?.Invoke();
     }
     
+    [ContextMenu("Move to next level")]
     public void MoveToNextLevel()
     {
         MoveToLevel(_currentLevel + 1);
     }
     
+    // For testing purposes only
+    [ContextMenu("Move to previous level")]
+    private void MoveToPreviousLevel()
+    {
+        MoveToLevel(_currentLevel - 1);
+    }
+    
     public void MoveToLevel(int levelNumber)
     {
-        if (levelNumber >= Levels.Count)
+        if (levelNumber >= Levels.Count )
             return;
         
         if(_currentLevel != -1)
@@ -62,9 +70,11 @@ public class LevelManager : MonoBehaviour
         OnChangeLevel?.Invoke();
     }
     
+    [ContextMenu("Restart level")]
     public void RestartLevel()
     {
         CurrentLevel.RestartLevel();
+        OnLevelRestart?.Invoke();
     }
     
     public Level GetLevel(int levelNumber)
@@ -75,5 +85,18 @@ public class LevelManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    [ContextMenu("Move to first incomplete level")]
+    public void MoveToFirstIncompleteLevel()
+    {
+        for (int i = 0; i < Levels.Count; i++)
+        {
+            if (Levels[i].State == LevelState.NotCompleted)
+            {
+                MoveToLevel(i);
+                return;
+            }
+        }
     }
 }

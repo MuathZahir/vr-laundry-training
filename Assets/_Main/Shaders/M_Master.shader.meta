@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e52ad7ee8c2d42e469fe1205ba4c5a3e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Master_2_diffuse: {fileID: 2800000, guid: 156370006bdc3f7498f37313c903663b, type: 3}
+  - _Master_2_normal: {fileID: 2800000, guid: c6a5565e9d8ebb941a083dbf78ec819e, type: 3}
+  - _Master_emissive: {fileID: 2800000, guid: 726345606bf66f24596363622bf44d7e, type: 3}
+  - _Master_2_metallic_Smoothness: {fileID: 2800000, guid: f7e4b286aac570349a43bc41dc1fb971, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
