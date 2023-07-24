@@ -11,7 +11,9 @@ public class IncompleteUI : MonoBehaviour
     [SerializeField] private Sprite incompleteSprite;
     [SerializeField] private Color completeColor;
     [SerializeField] private Sprite completeSprite;
+
     [SerializeField] private GameObject completeUI;
+    [SerializeField] private GameObject incompleteUI;
     
     private void OnEnable()
     {
@@ -46,6 +48,6 @@ public class IncompleteUI : MonoBehaviour
         }
 
         completeUI.SetActive(isAllComplete);
-        gameObject.SetActive(!isAllComplete);
+        incompleteUI.SetActive(!isAllComplete);
     }
 }

@@ -13,7 +13,8 @@ public class TowelSpawner : MonoBehaviour
     private bool _canSpawn = true;
     private List<Towel> _spawnedTowels = new List<Towel>();
     private int _current = 0;
-
+    
+    [ContextMenu("Spawn Towel")]
     private void SpawnTowel()
     {
         tutorial.gameObject.SetActive(true);

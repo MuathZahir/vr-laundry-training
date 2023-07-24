@@ -101,13 +101,13 @@ Material:
     - _MiddleGlowValue: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Opacity: 0
+    - _Opacity: 0.579
     - _OutlineFresnelOpacity: 0
     - _OutlineFresnelPower: 2.462451
     - _OutlineGlowIntensity: 1
     - _OutlineGradient: 0
     - _OutlineIntensity: 1
-    - _OutlineOpacity: 1
+    - _OutlineOpacity: 0.525
     - _OutlinePinchRange: 0.15
     - _OutlineSphereHardness: 0.15
     - _OutlineWidth: 0.00245
@@ -123,19 +123,19 @@ Material:
     - _ThumbGlowValue: 0
     - _UVSec: 0
     - _UseTexture: 0
-    - _WristFade: 0.234
+    - _WristFade: 0.464
     - _WristRange: 0.06
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 0.44811308, b: 0.44811308, a: 1}
-    - _ColorBottom: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+    - _ColorBottom: {r: 0.454902, g: 0.6901961, b: 0.86666673, a: 1}
     - _ColorPrimary: {r: 1, g: 0.4481132, b: 0.4481132, a: 1}
     - _ColorSecondary: {r: 1, g: 0.8443396, b: 0.8443396, a: 1}
-    - _ColorTop: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorTop: {r: 0.454902, g: 0.6901961, b: 0.86666673, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FingerGlowColor: {r: 0.03921567, g: 0.18675627, b: 0.74509805, a: 1}
-    - _OutlineColor: {r: 0.45361334, g: 0.6889082, b: 0.8679245, a: 1}
+    - _OutlineColor: {r: 0.20943394, g: 0.37547162, b: 0.5, a: 1}
     - _OutlineColorBottom: {r: 0, g: 0.19427729, b: 1, a: 1}
     - _OutlineColorTop: {r: 1, g: 0, b: 0, a: 1}
     - _OutlineGlowColor: {r: 1, g: 1, b: 1, a: 1}
