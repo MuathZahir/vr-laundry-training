@@ -10,6 +10,7 @@ public class PlayerTeleporter : MonoBehaviour
     [SerializeField] private Transform userRig;
     [SerializeField] private Transform playerOrigin;
     [SerializeField] private Transform playerHead;
+    [SerializeField] private OVREyeGaze eyeTracker;
     
     public void MoveToTransform(Transform targetTransform)
     {
@@ -23,22 +24,22 @@ public class PlayerTeleporter : MonoBehaviour
         var positionOffset = playerOrigin.position - playerHead.position;
         positionOffset.y = 0f;
 
-        LeanTween.move(userRig.gameObject, targetPos, time);
+        LeanTween.move(userRig.gameObject, targetPos, time).setOnComplete(() => Rotate(targetTransform));
         
     }
-    //
-    // public void Rotate(Transform targetTransform)
-    // {
-    //     var targetRotation = targetTransform.rotation;
-    //     
-    //     // Rotate player
-    //     Vector3 headForward = Vector3.ProjectOnPlane(_playerHead.forward, _playerOrigin.up).normalized;
-    //     Quaternion headFlatRotation = Quaternion.LookRotation(headForward, _playerOrigin.up);
-    //     Quaternion rotationOffset = Quaternion.Inverse(_playerOrigin.rotation) * headFlatRotation;
-    //     
-    //     var rotation = Quaternion.Inverse(rotationOffset) * targetRotation;
-    //     _playerOrigin.rotation = rotation;
-    //     Debug.Log("Player rotation: " + _playerOrigin.eulerAngles.y);
-    //     _eyeTracker.SetHeadRotation(-_playerOrigin.eulerAngles.y);
-    // }
+    
+    public void Rotate(Transform targetTransform)
+    {
+        var targetRotation = targetTransform.rotation;
+        
+        // Rotate player
+        Vector3 headForward = Vector3.ProjectOnPlane(playerHead.forward, playerOrigin.up).normalized;
+        Quaternion headFlatRotation = Quaternion.LookRotation(headForward, playerOrigin.up);
+        Quaternion rotationOffset = Quaternion.Inverse(playerOrigin.rotation) * headFlatRotation;
+        
+        var rotation = Quaternion.Inverse(rotationOffset) * targetRotation;
+        playerOrigin.rotation = rotation;
+        Debug.Log("Player rotation: " + playerOrigin.eulerAngles.y);
+        eyeTracker.SetHeadRotation(-playerOrigin.eulerAngles.y);
+    }
 }

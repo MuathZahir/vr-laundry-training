@@ -18,8 +18,6 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject instructionScreen;
     [SerializeField] private List<LevelRestartAction> levelRestartActions = new List<LevelRestartAction>();
     
-    private Animator animator;
-    
     private static readonly int Start = Animator.StringToHash("Start");
     private static readonly int Complete = Animator.StringToHash("End");
 
@@ -27,7 +25,6 @@ public class Level : MonoBehaviour
     
     private void Awake()
     {
-        animator = gameObject.GetComponent<Animator>();
         ClothesRemaining = clothesRequired;
         LevelNumber = transform.GetSiblingIndex();
         Info = gameObject.GetComponent<LevelInfo>();
@@ -51,18 +48,12 @@ public class Level : MonoBehaviour
     
     public void StartLevel()
     {
-        animator.ResetTrigger(Complete);
-        animator.SetTrigger(Start);
-
         if(tutorial != null)
             tutorial.StartTutorial();
     }
 
     public void LeaveLevel()
     {
-        animator.ResetTrigger(Start);
-        animator.SetTrigger(Complete);
-        
         ClothesActive(false);
     }
     
