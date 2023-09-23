@@ -34,7 +34,7 @@ Shader "Interaction/RoundedBoxUnlit"
         {
             "Queue"="Transparent" "RenderType"="Transparent"
         }
-        ZWrite Off
+        ZWrite On
         Blend SrcAlpha OneMinusSrcAlpha
         ZTest [_ZTest]
         LOD 100

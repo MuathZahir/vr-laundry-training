@@ -66,6 +66,8 @@ namespace Oculus.Interaction
                 _pokeInteractable.WhenInteractorAdded.Action += HandleInteractorAdded;
                 _pokeInteractable.WhenInteractorRemoved.Action += HandleInteractorRemoved;
             }
+
+            UpdateComponentPosition();
         }
 
         protected virtual void OnDisable()

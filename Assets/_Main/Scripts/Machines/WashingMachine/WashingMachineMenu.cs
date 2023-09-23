@@ -7,6 +7,7 @@ public class WashingMachineMenu : MachineMenu
 {
     [SerializeField] private GameObject doorOpenWarning;
     [SerializeField] private MachineTimer timer;
+    [SerializeField] private GameObject timeSelectMenu;
 
     private bool _isDone = false;
     
@@ -21,6 +22,7 @@ public class WashingMachineMenu : MachineMenu
         {
             RestartMenu();
         }
+        timeSelectMenu.SetActive(!show);
         doorOpenWarning.SetActive(show);
     }
     
