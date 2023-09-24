@@ -11,6 +11,8 @@ public class GarmentRandomizer : MonoBehaviour
     [SerializeField] private MeshRenderer heldClothRenderer;
     [SerializeField] private SkinnedMeshRenderer idleClothRenderer;
     [SerializeField] private GarmentMaterialTextures[] garmentMaterialTextures;
+    [SerializeField] private Texture2D softStainMask;
+    [SerializeField] private Texture2D hardStainMask;
     [SerializeField] private StainColor[] stainColors;
 
     private Material garmentMat;
@@ -64,8 +66,15 @@ public class GarmentRandomizer : MonoBehaviour
         garmentMat.SetColor("_StainColor", stainColor.Color);
         // garmentMat.SetColor("_Stain_Color", stainColor.Color);
         
+        // Randomize stain mask
+        var stainMask = stainColor.StainType == StainType.Hard ? hardStainMask : softStainMask;
+        
+        garmentMat.SetTexture("_Mask_1", stainMask);
+        
         // Randomize stain and dirt amount
-        var stainAmount = random.NextDouble() * 0.5 + 0.5;
+        var stainAmount = stainColor.StainType == StainType.Hard ? random.NextDouble() * 0.2 + 0.8 
+            : random.NextDouble() * 0.2 + 0.3;
+        
         var dirtAmount = random.NextDouble() * 0.5 + 0.5;
         
         garmentMat.SetFloat("_StainsOpacity", (float)stainAmount);

@@ -363,6 +363,8 @@ MonoBehaviour:
     Metallic: {fileID: 2800000, guid: f844e3705ea09c84b854551fbcf58c23, type: 3}
     Normal: {fileID: 2800000, guid: 200049cad64518a4c91679fc623cd66b, type: 3}
     LaundryColor: 2
+  softStainMask: {fileID: 2800000, guid: 41d8e7878162de840bb6976f18036581, type: 3}
+  hardStainMask: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
   stainColors:
   - Name: Oil-Based Stain
     Color: {r: 0.41960785, g: 0.25882354, b: 0.14901961, a: 1}
