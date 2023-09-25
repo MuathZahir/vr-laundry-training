@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 3555490201545054892, guid: 1066def6c37f9d2458d55ef89c800fb4,
         type: 3}
       propertyPath: m_Name
-      value: Pants Variant (3)
+      value: Pants Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3555490201545054893, guid: 1066def6c37f9d2458d55ef89c800fb4,
         type: 3}

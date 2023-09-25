@@ -84,7 +84,7 @@ public class GarmentRandomizer : MonoBehaviour
         // garmentMat.SetFloat("_Dirt_Opacity", dirtAmount);
         
         // Randomize stain and dirt texture tiling and offset
-        var stainSize = (float)(random.NextDouble() * 2.5 + 0.5);
+        var stainSize = (float)(random.NextDouble() * 0.7 + 1);
         var dirtSize = (float)(random.NextDouble() * 2.5 + 0.5);
         
         var stainOffset = new Vector2((float)random.NextDouble(), (float)random.NextDouble());

@@ -418,6 +418,51 @@ MonoBehaviour:
   virtualDeformer: {fileID: 7818406950823912992}
   virtualDeformerHash: -1603133702
   virtualDeformerVersion: 2
+--- !u!1 &4042710801677129117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688005691085185294}
+  - component: {fileID: 622147087346435726}
+  m_Layer: 0
+  m_Name: GrabArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688005691085185294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042710801677129117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.127, z: 0.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7772438197762689868}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &622147087346435726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042710801677129117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.382374, y: 0.4960854, z: 0.4823624}
+  m_Center: {x: 0.025641534, y: -0.0066896016, z: 0.000001870096}
 --- !u!1 &4160120355443169722
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +502,7 @@ Transform:
   - {fileID: 474185387635057043}
   - {fileID: 5750500739057802432}
   - {fileID: 8066834594833501257}
+  - {fileID: 688005691085185294}
   m_Father: {fileID: 7818406950946181736}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -725,8 +771,8 @@ SkinnedMeshRenderer:
   - 100
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0.0032433802, y: 0.00047185458, z: -0.019905858}
+    m_Extent: {x: 0.01324338, y: 0.014012886, z: 0.004317862}
   m_DirtyAABB: 0
 --- !u!1 &5316486042522486304
 GameObject:
