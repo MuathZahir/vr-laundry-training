@@ -66,7 +66,7 @@ namespace Oculus.Interaction
                 _pokeInteractable.WhenInteractorAdded.Action += HandleInteractorAdded;
                 _pokeInteractable.WhenInteractorRemoved.Action += HandleInteractorRemoved;
             }
-
+            
             UpdateComponentPosition();
         }
 
@@ -85,7 +85,7 @@ namespace Oculus.Interaction
                 }
             }
         }
-
+        
         private void HandleInteractorAdded(PokeInteractor pokeInteractor)
         {
             _pokeInteractors.Add(pokeInteractor);
@@ -132,20 +132,21 @@ namespace Oculus.Interaction
             // point. If no interactors exist, we sit the button at the original offset
 
             float closestDistance = _maxOffsetAlongNormal;
-            foreach (PokeInteractor pokeInteractor in _pokeInteractors)
-            {
-                // Scalar project the poke interactor's position onto the button base's normal vector
-                float pokeDistance =
-                    Vector3.Dot(pokeInteractor.Origin - _buttonBaseTransform.position,
-                        -1f * _buttonBaseTransform.forward);
-                pokeDistance -= pokeInteractor.Radius;
-                if (pokeDistance < 0f)
-                {
-                    pokeDistance = 0f;
-                }
 
-                closestDistance = Math.Min(pokeDistance, closestDistance);
-            }
+                foreach (PokeInteractor pokeInteractor in _pokeInteractors)
+                {
+                    // Scalar project the poke interactor's position onto the button base's normal vector
+                    float pokeDistance =
+                        Vector3.Dot(pokeInteractor.Origin - _buttonBaseTransform.position,
+                            -1f * _buttonBaseTransform.forward);
+                    pokeDistance -= pokeInteractor.Radius;
+                    if (pokeDistance < 0f)
+                    {
+                        pokeDistance = 0f;
+                    }
+
+                    closestDistance = Math.Min(pokeDistance, closestDistance);
+                }
 
             // Position our transformation at our button base plus
             // the most pressed in distance along the normal plus
