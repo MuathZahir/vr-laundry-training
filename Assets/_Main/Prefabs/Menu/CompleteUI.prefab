@@ -1332,12 +1332,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8575423565325878366}
     - target: {fileID: 3237448465856690262, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7929206329139318273}
     - target: {fileID: 3237448465856690262, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1356,7 +1356,7 @@ PrefabInstance:
     - target: {fileID: 3237448465856690262, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: StartLevel
+      value: MoveToNext
       objectReference: {fileID: 0}
     - target: {fileID: 3237448465856690262, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}
@@ -1371,7 +1371,7 @@ PrefabInstance:
     - target: {fileID: 3237448465856690262, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Level, Assembly-CSharp
+      value: CompleteTaskPopup, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3237448465856690262, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}

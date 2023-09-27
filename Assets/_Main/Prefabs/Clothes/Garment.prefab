@@ -1053,6 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   garment: {fileID: 2090925486763040719}
   cloth: {fileID: 6576250701322987861}
+  grabArea: {fileID: 8850643115028460557}
   overrideInfo: 0
   stainType: 0
   laundryColor: 0

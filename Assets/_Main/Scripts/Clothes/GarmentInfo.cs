@@ -16,6 +16,7 @@ public class GarmentInfo : MonoBehaviour
     //[SerializeField] private Animator animator;
     [SerializeField] private Garment garment;
     [SerializeField] private GameObject cloth;
+    [SerializeField] private GameObject grabArea;
     [SerializeField] private bool overrideInfo = false;
     [SerializeField] private StainType stainType;
     [SerializeField] private LaundryColor laundryColor;
@@ -48,5 +49,10 @@ public class GarmentInfo : MonoBehaviour
     {
         IsHeld = false;
         OnPutDown?.Invoke(this);
+    }
+
+    public void GrabAreaEnabled(bool isEnabled)
+    {
+        grabArea.SetActive(isEnabled);
     }
 }

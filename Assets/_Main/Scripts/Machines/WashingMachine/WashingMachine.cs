@@ -72,6 +72,11 @@ public class WashingMachine : LaundryContainer
     {
         washingCoroutine = RotateDrum();
         StartCoroutine(washingCoroutine);
+
+        foreach (var garment in _clothes)
+        {
+            garment.GrabAreaEnabled(false);
+        }
         
         // Lock door
         machineDoor.IsDoorEnabled(false);
@@ -84,6 +89,7 @@ public class WashingMachine : LaundryContainer
         foreach (var garmentInfo in _clothes)
         {
             garmentInfo.GetGarment().Clean();
+            garmentInfo.GrabAreaEnabled(true);
         }
         
         // Unlock door
