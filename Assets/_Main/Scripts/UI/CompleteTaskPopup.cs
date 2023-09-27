@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CompleteTaskPopup : MonoBehaviour
 {
     [SerializeField] private float animationDuration = 0.5f;
+    [SerializeField] private GameObject button;
 
     private Vector3 _initialScale;
     
@@ -19,9 +20,15 @@ public class CompleteTaskPopup : MonoBehaviour
     private void OnEnable()
     {
         transform.localScale = Vector3.zero;
-        LeanTween.scale(gameObject, _initialScale, animationDuration).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(gameObject, _initialScale, animationDuration).setEase(LeanTweenType.easeOutBack)
+            .setOnComplete(() => button.SetActive(true));
     }
-    
+
+    private void OnDisable()
+    {
+        button.SetActive(false);
+    }
+
     public void MoveToNext()
     {
         LevelManager.Instance.MoveToNextLevel();

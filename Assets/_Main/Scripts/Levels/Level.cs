@@ -43,11 +43,12 @@ public class Level : MonoBehaviour
 
     public void EnterLevel()
     {
-        ClothesActive(true);
     }
     
     public void StartLevel()
     {
+        ClothesActive(true);
+
         if(tutorial != null)
             tutorial.StartTutorial();
     }
