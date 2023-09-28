@@ -7,6 +7,7 @@ public class IroningMachine : MonoBehaviour
 {
     [SerializeField] private ConveyorBelt conveyorBelt;
     [SerializeField] private IroningMachineCollector collector;
+    [SerializeField] private MachineMenu menu;
 
     private AudioSource _audioSource;
 
@@ -29,5 +30,6 @@ public class IroningMachine : MonoBehaviour
     {
         StopConveyorBelt();
         collector.Restart();
+        menu.RestartMenu();
     }
 }

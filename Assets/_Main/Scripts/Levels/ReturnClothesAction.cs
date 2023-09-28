@@ -22,6 +22,7 @@ public class ReturnClothesAction : LevelRestartAction
         foreach (var garment in clothes)
         {
             garment.Respawn();
+            garment.gameObject.SetActive(false);
         }
     }
 }

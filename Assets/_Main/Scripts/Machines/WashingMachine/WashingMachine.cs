@@ -46,6 +46,7 @@ public class WashingMachine : LaundryContainer
     {
         _clothes.Clear();
         machineDoor.CloseDoor();
+        menu.RestartMenu();
     }
 
     private void OnTriggerEnter(Collider other)

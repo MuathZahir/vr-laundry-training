@@ -1295,7 +1295,7 @@ MonoBehaviour:
   _alphaCutoutThreshold: 0.5
   _canvasMesh: {fileID: 5813211626809273508}
   _runtimeOffset: {x: 0, y: 0, z: 0}
-  _enableSuperSampling: 1
+  _enableSuperSampling: 0
   _doUnderlayAntiAliasing: 0
   _emulateWhileInEditor: 1
 --- !u!33 &5813211626809273509
