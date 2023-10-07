@@ -1232,14 +1232,8 @@ MonoBehaviour:
     Normal: {fileID: 2800000, guid: 200049cad64518a4c91679fc623cd66b, type: 3}
     LaundryColor: 3
   softStainMask: {fileID: 2800000, guid: 41d8e7878162de840bb6976f18036581, type: 3}
-  hardStainMask: {fileID: 2800000, guid: eef711d0480781043959382cc1d47707, type: 3}
+  hardStainMask: {fileID: 2800000, guid: 41d8e7878162de840bb6976f18036581, type: 3}
   stainColors:
-  - Name: Oil-Based Stain
-    Color: {r: 0.41960785, g: 0.25882354, b: 0.14901961, a: 1}
-    StainType: 1
-  - Name: Grease Stain
-    Color: {r: 0.36078432, g: 0.38431373, b: 0.36078432, a: 1}
-    StainType: 1
   - Name: Ink Stain
     Color: {r: 0, g: 0.12156863, b: 0.24705882, a: 1}
     StainType: 1
@@ -1257,9 +1251,6 @@ MonoBehaviour:
     StainType: 2
   - Name: Tea Stain
     Color: {r: 0.8235294, g: 0.7058824, b: 0.54901963, a: 1}
-    StainType: 2
-  - Name: Juice Stain
-    Color: {r: 1, g: 0.627451, b: 0.47843137, a: 1}
     StainType: 2
   - Name: Sweat Stain
     Color: {r: 0.9411765, g: 0.9019608, b: 0.54901963, a: 1}
