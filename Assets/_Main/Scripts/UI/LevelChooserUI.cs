@@ -28,7 +28,23 @@ public class LevelChooserUI : Page
             button.UpdateButton();
         }
     }
-    
+
+    public override void OnLevelRestart()
+    {
+        foreach (var button in levelButtons)
+        {
+            button.UpdateButton();
+        }
+    }
+
+    public override void OnLevelComplete()
+    {
+        foreach (var button in levelButtons)
+        {
+            button.UpdateButton();
+        }
+    }
+
     private void OnLevelButtonClicked(Level level)
     {
         LevelManager.Instance.MoveToLevel(level.LevelNumber);

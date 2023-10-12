@@ -24,7 +24,9 @@ public class GarmentRandomizer : MonoBehaviour
         Randomize(info);
 
         heldClothRenderer.material = garmentMat;
-        idleClothRenderer.material = garmentMat;
+        
+        if(idleClothRenderer != null)
+            idleClothRenderer.material = garmentMat;
     }
 
     private void Randomize(GarmentInfo info)

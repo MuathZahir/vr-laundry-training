@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Oculus.Interaction;
 using UCloth;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -16,10 +17,13 @@ public class TowelFixedPoint : MonoBehaviour
     [SerializeField] private UCCloth cloth;
     [SerializeField] private SnappingGuide snappingGuide;
     [SerializeField] private float snappingDistance = 0.1f;
+    [SerializeField] private bool isEnabledInFirstFold = false;
+    [SerializeField] private bool isEnabledInSecondFold = false;
     [SerializeField] private List<TowelFixedPoint> snappingPoints = new List<TowelFixedPoint>();
 
     private bool _isGrabbed = false;
     
+    private Grabbable _grabbable;
     private BoxCollider _collider;
     private Rigidbody _rigidbody;
 
@@ -31,6 +35,9 @@ public class TowelFixedPoint : MonoBehaviour
         
         _collider = gameObject.GetComponent<BoxCollider>();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
+        _grabbable = gameObject.GetComponent<Grabbable>();
+
+        _grabbable.enabled = isEnabledInFirstFold;
     }
 
     // private void Start()
@@ -136,6 +143,14 @@ public class TowelFixedPoint : MonoBehaviour
             return false;
         
         return snappingPoints[0] == snapTarget;
+    }
+    
+    public void NextStep(int step)
+    {
+        if (step == 1)
+            _grabbable.enabled = isEnabledInFirstFold;
+        else if (step == 2)
+            _grabbable.enabled = isEnabledInSecondFold;
     }
     
     private IEnumerator QueryPoints(float3 pos, float radius, Action<List<ushort>> finishCallback)

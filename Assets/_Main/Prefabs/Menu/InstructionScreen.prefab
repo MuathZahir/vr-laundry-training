@@ -1978,7 +1978,7 @@ PrefabInstance:
     - target: {fileID: 4952847194313938208, guid: e78971f59a9b7074ab4f05fdc56687cd,
         type: 3}
       propertyPath: m_text
-      value: START LEVEL
+      value: START TASK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78971f59a9b7074ab4f05fdc56687cd, type: 3}

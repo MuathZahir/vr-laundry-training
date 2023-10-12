@@ -20,13 +20,39 @@ public class PagesUI : MonoBehaviour
         }
 
         LevelManager.OnChangeLevel += OnLevelLoaded;
+        LevelManager.OnLevelComplete += OnLevelComplete;
+        LevelManager.OnLevelRestart += OnLevelRestart;
     }
-    
+
+    private void OnLevelRestart()
+    {
+        foreach (var page in _pages)
+        {
+            page.OnLevelRestart();
+        }
+    }
+
+    private void OnLevelComplete()
+    {
+        foreach (var page in _pages)
+        {
+            page.OnLevelComplete();
+        }
+    }
+
     private void OnLevelLoaded()
     {
         foreach (var page in _pages)
         {
             page.OnLevelLoaded();
+        }
+    }
+
+    public void Reset()
+    {
+        foreach (var page in _pages)
+        {
+            page.gameObject.SetActive(false);
         }
     }
 }

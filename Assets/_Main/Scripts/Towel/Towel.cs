@@ -30,11 +30,16 @@ public class Towel : MonoBehaviour
             // Folded first time
             case 4:
                 tutorial.MoveToNextStep();
+                
+                foreach(var point in FixedPoints)
+                    point.NextStep(2);
+                
                 break;
             // Folded second time
             case 2:
                 IsFolded = true;
                 tutorial.CompleteTutorial();
+                
                 break;
         }
     }

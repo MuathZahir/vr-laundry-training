@@ -10,7 +10,6 @@ public class PlayerTeleporter : MonoBehaviour
     [SerializeField] private Transform userRig;
     [SerializeField] private Transform playerOrigin;
     [SerializeField] private Transform playerHead;
-    [SerializeField] private OVREyeGaze eyeTracker;
     
     public void MoveToTransform(Transform targetTransform)
     {
@@ -40,6 +39,5 @@ public class PlayerTeleporter : MonoBehaviour
         var rotation = Quaternion.Inverse(rotationOffset) * targetRotation;
         playerOrigin.rotation = rotation;
         Debug.Log("Player rotation: " + playerOrigin.eulerAngles.y);
-        eyeTracker.SetHeadRotation(-playerOrigin.eulerAngles.y);
     }
 }

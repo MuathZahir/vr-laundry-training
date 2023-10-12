@@ -32,6 +32,16 @@ public class LevelInfoUI : Page
         SetLevelInfo(LevelManager.Instance.CurrentLevel.Info);
     }
 
+    public override void OnLevelRestart()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void OnLevelComplete()
+    {
+        throw new NotImplementedException();
+    }
+
     public void SetTutorialText()
     {
         levelNameText.text = "Tutorial";

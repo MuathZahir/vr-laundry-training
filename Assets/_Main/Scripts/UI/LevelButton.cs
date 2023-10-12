@@ -2,22 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Main.Scripts.UI;
+using Oculus.Interaction;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
 {
     public static event Action<Level> OnLevelSelected;
-
-    [SerializeField] private BubbleButton button;
-    [SerializeField] private BubbleMenu menu;
     
-    private Image _background;
+    [SerializeField] private BubbleMenu menu;
+    [SerializeField] private TMP_Text levelNumberText;
+    [SerializeField] private GameObject currentLevelIndicator;
+    [SerializeField] private GameObject completedLevelIndicator;
+    
     private Level _level;
 
     public void InitializeButton()
     {
-        _background = gameObject.GetComponent<Image>();
+        UpdateButton();
     }
 
     public void SetLevel(Level level)
@@ -29,12 +32,16 @@ public class LevelButton : MonoBehaviour
     {
         try
         {
+            
             if (LevelManager.Instance.CurrentLevel == _level)
-                _background.color = Color.blue; // TODO: this should change the bubble button not the background
-            else if (_level.State == LevelState.Completed)
-                _background.color = Color.green;
+                currentLevelIndicator.SetActive(true);
+            else
+                currentLevelIndicator.SetActive(false);
+            
+            if (_level.State == LevelState.Completed)
+                completedLevelIndicator.SetActive(true);
             else if (_level.State == LevelState.NotCompleted)
-                _background.color = Color.grey;
+                completedLevelIndicator.SetActive(false);
         }
         catch (ArgumentOutOfRangeException e)
         {
@@ -44,12 +51,6 @@ public class LevelButton : MonoBehaviour
     
     public void OnToggle(bool isOn)
     {
-        if (menu.IsTutorial)
-        {
-            menu.ShowTutorialText();
-            return;
-        }
-        
         if (!isOn || LevelManager.Instance.CurrentLevel == _level) return;
         
         OnLevelSelected?.Invoke(_level);
@@ -57,6 +58,5 @@ public class LevelButton : MonoBehaviour
 
     public void Enabled(bool isEnabled)
     {
-        button.SetEnabled(isEnabled);
     }
 }

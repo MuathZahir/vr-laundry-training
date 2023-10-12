@@ -26,12 +26,8 @@ public class WelcomePages : MonoBehaviour
         pages[_currentPageIndex].SetActive(true);
     }
     
-    public void TutorialDone()
+    public void StartSimulation()
     {
-        bubbleMenu.TutorialComplete();
-        // bubbleMenu.IsLevelChooserActive(true);
-        // bubbleMenu.IsInfoPageActive(true);
-        
         LevelManager.Instance.MoveToLevel(LevelManager.Instance.StartLevel);
     }
     

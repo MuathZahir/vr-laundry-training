@@ -16,6 +16,7 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject levelCompleteUI;
     [SerializeField] private Tutorial tutorial;
     [SerializeField] private GameObject instructionScreen;
+    [SerializeField] private GameObject menu;
     [SerializeField] private List<LevelRestartAction> levelRestartActions = new List<LevelRestartAction>();
     
     private static readonly int Start = Animator.StringToHash("Start");
@@ -34,6 +35,9 @@ public class Level : MonoBehaviour
             _garments.Add(child.gameObject);
             child.gameObject.SetActive(false);
         }
+        
+        menu.SetActive(false);
+        instructionScreen.SetActive(false);
     }
 
     public void ShowInstructionScreen()
@@ -51,11 +55,14 @@ public class Level : MonoBehaviour
 
         if(tutorial != null)
             tutorial.StartTutorial();
+        
+        menu.SetActive(true);
     }
 
     public void LeaveLevel()
     {
         ClothesActive(false);
+        menu.SetActive(false);
     }
     
     [ContextMenu("Complete Level")]
@@ -71,6 +78,8 @@ public class Level : MonoBehaviour
         {
             action.PerformAction();
         }
+        
+        menu.SetActive(false);
         
         State = LevelState.NotCompleted;
         ClothesRemaining = clothesRequired;
