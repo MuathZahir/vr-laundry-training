@@ -145,14 +145,6 @@ public class TowelFixedPoint : MonoBehaviour
         return snappingPoints[0] == snapTarget;
     }
     
-    public void NextStep(int step)
-    {
-        if (step == 1)
-            _grabbable.enabled = isEnabledInFirstFold;
-        else if (step == 2)
-            _grabbable.enabled = isEnabledInSecondFold;
-    }
-    
     private IEnumerator QueryPoints(float3 pos, float radius, Action<List<ushort>> finishCallback)
     {
         // Create a TaskCompletionSource to await the completion of the async function
@@ -189,21 +181,5 @@ public class TowelFixedPoint : MonoBehaviour
 
         // Access the result of the async function
         finishCallback(tcs.Task.Result);
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.TryGetComponent<TowelGatherer>(out var gatherer) && !_isGrabbed && towel.IsFolded)
-        {
-            towel.FixedPoints.Remove(this);
-
-            if (towel.FixedPoints.Count == 0)
-            {
-                cloth.enabled = false;
-                towel.OnPlaced();
-            }
-            
-            gameObject.SetActive(false);
-        }
     }
 }

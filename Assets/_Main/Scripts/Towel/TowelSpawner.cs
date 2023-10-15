@@ -88,6 +88,11 @@ public class TowelSpawner : MonoBehaviour
         _spawnedTowels.Clear();
         _canSpawn = true;
     }
+
+    public void CanSpawn()
+    {
+        _canSpawn = true;
+    }
     
     // [ContextMenu("Restart")]
     // public void Restart()

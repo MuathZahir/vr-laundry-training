@@ -266,6 +266,7 @@ MonoBehaviour:
   FixedPoints: []
   fixedPoints: {fileID: 7655000067601762615}
   tutorial: {fileID: 0}
+  mesh: {fileID: 0}
 --- !u!1 &7655000066392029026
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +471,8 @@ MonoBehaviour:
   cloth: {fileID: 7655000067154483575}
   snappingGuide: {fileID: 6786869500680827203}
   snappingDistance: 0.03
+  isEnabledInFirstFold: 0
+  isEnabledInSecondFold: 0
   snappingPoints:
   - {fileID: 7655000067780284086}
   - {fileID: 7655000067037309543}
@@ -981,6 +984,8 @@ MonoBehaviour:
   cloth: {fileID: 7655000067154483575}
   snappingGuide: {fileID: 6786869501236397628}
   snappingDistance: 0.03
+  isEnabledInFirstFold: 0
+  isEnabledInSecondFold: 0
   snappingPoints:
   - {fileID: 7655000067160574603}
   - {fileID: 7655000066392029025}
@@ -1204,6 +1209,8 @@ MonoBehaviour:
   cloth: {fileID: 7655000067154483575}
   snappingGuide: {fileID: 6786869501468976931}
   snappingDistance: 0.03
+  isEnabledInFirstFold: 0
+  isEnabledInSecondFold: 0
   snappingPoints:
   - {fileID: 7655000067037309543}
   - {fileID: 7655000067780284086}
@@ -1499,6 +1506,8 @@ MonoBehaviour:
   cloth: {fileID: 7655000067154483575}
   snappingGuide: {fileID: 6786869500674596025}
   snappingDistance: 0.03
+  isEnabledInFirstFold: 0
+  isEnabledInSecondFold: 0
   snappingPoints:
   - {fileID: 7655000067599758101}
 --- !u!54 &7655000067542265091
@@ -1721,6 +1730,8 @@ MonoBehaviour:
   cloth: {fileID: 7655000067154483575}
   snappingGuide: {fileID: 6786869501089249578}
   snappingDistance: 0.03
+  isEnabledInFirstFold: 0
+  isEnabledInSecondFold: 0
   snappingPoints:
   - {fileID: 7655000067542265089}
 --- !u!54 &7655000067599758100
@@ -2052,6 +2063,8 @@ MonoBehaviour:
   cloth: {fileID: 7655000067154483575}
   snappingGuide: {fileID: 6786869500061769742}
   snappingDistance: 0.03
+  isEnabledInFirstFold: 0
+  isEnabledInSecondFold: 0
   snappingPoints:
   - {fileID: 7655000066392029025}
   - {fileID: 7655000067160574603}

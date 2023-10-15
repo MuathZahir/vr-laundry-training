@@ -16,7 +16,11 @@ public class Tutorial : MonoBehaviour
 
     public void StartTutorial()
     {
-        if(_wasShown) return;
+        if (_wasShown)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         
         foreach (var animator in animators)
         {

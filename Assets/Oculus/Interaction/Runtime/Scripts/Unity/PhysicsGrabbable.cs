@@ -103,7 +103,8 @@ namespace Oculus.Interaction
         {
             _isBeingTransformed = true;
             CachePhysicsState();
-            _rigidbody.isKinematic = true;
+            //_rigidbody.isKinematic = true;
+            _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
 
         private void ReenablePhysics()
@@ -122,7 +123,8 @@ namespace Oculus.Interaction
             }
 
             // revert the original kinematic state
-            _rigidbody.isKinematic = _savedIsKinematicState;
+            //_rigidbody.isKinematic = _savedIsKinematicState;
+            _rigidbody.constraints = RigidbodyConstraints.None;
         }
 
         public void ApplyVelocities(Vector3 linearVelocity, Vector3 angularVelocity)

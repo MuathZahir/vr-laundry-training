@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Oculus.Interaction;
 using UCloth;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Towel : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Towel : MonoBehaviour
     [SerializeField] private Transform fixedPoints;
     [SerializeField] private Tutorial tutorial;
     [SerializeField] private Mesh mesh;
+    [SerializeField] private GameObject foldedTowelTemplate;
+    
+    [SerializeField] private UnityEvent onFoldedFirstTime;
+    [SerializeField] private UnityEvent onFoldedSecondTime;
 
     public UCCloth Cloth { get; private set; }
     public bool IsFolded { get; set; } = false;
@@ -30,15 +35,20 @@ public class Towel : MonoBehaviour
             // Folded first time
             case 4:
                 tutorial.MoveToNextStep();
-                
-                foreach(var point in FixedPoints)
-                    point.NextStep(2);
+                onFoldedFirstTime?.Invoke();
                 
                 break;
             // Folded second time
             case 2:
                 IsFolded = true;
                 tutorial.CompleteTutorial();
+                
+                Instantiate(foldedTowelTemplate, foldedTowelTemplate.transform.position,
+                    foldedTowelTemplate.transform.rotation, transform.parent).SetActive(true);
+                
+                onFoldedSecondTime?.Invoke();
+                
+                Destroy(gameObject);
                 
                 break;
         }
