@@ -9,6 +9,14 @@ public class Tutorial : MonoBehaviour
     
     private bool _wasShown = false;
 
+    private void Start()
+    {
+        foreach (var animator in animators)
+        {
+            animator.keepAnimatorStateOnDisable = false;
+        }
+    }
+
     private void OnEnable()
     {
         StartTutorial();

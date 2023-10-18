@@ -15,6 +15,8 @@ public class IncompleteUI : MonoBehaviour
     [SerializeField] private GameObject completeUI;
     [SerializeField] private GameObject incompleteUI;
     
+    private bool _isAllComplete = false;
+    
     private void OnEnable()
     {
         LevelManager.OnLevelComplete += UpdateUI;
@@ -29,25 +31,34 @@ public class IncompleteUI : MonoBehaviour
 
     private void Start()
     {
-        UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
-        var isAllComplete = true;
+        _isAllComplete = true;
 
         for (int i = 0; i < completeIndicators.Length; i++)
         {
             var isComplete = LevelManager.Instance.GetLevel(i).State == LevelState.Completed;
 
             if (!isComplete)
-                isAllComplete = false;
+                _isAllComplete = false;
 
             completeIndicators[i].sprite = isComplete ? completeSprite : incompleteSprite;
             completeIndicators[i].color = isComplete ? completeColor : incompleteColor;
         }
-
-        completeUI.SetActive(isAllComplete);
-        incompleteUI.SetActive(!isAllComplete);
     }
+
+    public void ShowUI()
+    {
+        completeUI.SetActive(_isAllComplete);
+        incompleteUI.SetActive(!_isAllComplete);
+    }
+    
+    public void HideUI()
+    {
+        completeUI.SetActive(false);
+        incompleteUI.SetActive(false);
+    }
+    
 }

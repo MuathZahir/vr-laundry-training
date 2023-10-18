@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Level : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject instructionScreen;
     [SerializeField] private GameObject menu;
     [SerializeField] private List<LevelRestartAction> levelRestartActions = new List<LevelRestartAction>();
+    [SerializeField] private UnityEvent OnLevelComplete;
     
     private static readonly int Start = Animator.StringToHash("Start");
     private static readonly int Complete = Animator.StringToHash("End");
@@ -70,6 +72,7 @@ public class Level : MonoBehaviour
     {
         State = LevelState.Completed;
         levelCompleteUI.SetActive(true);
+        OnLevelComplete?.Invoke();
     }
 
     public void RestartLevel()
@@ -80,6 +83,7 @@ public class Level : MonoBehaviour
         }
         
         menu.SetActive(false);
+        instructionScreen.SetActive(true);
         
         State = LevelState.NotCompleted;
         ClothesRemaining = clothesRequired;

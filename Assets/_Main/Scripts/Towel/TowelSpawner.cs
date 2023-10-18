@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UCloth;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowelSpawner : MonoBehaviour
@@ -35,22 +36,22 @@ public class TowelSpawner : MonoBehaviour
         towel.gameObject.SetActive(true);
         
         _canSpawn = false;
-        towel.OnPlacedTowel += OnFoldedTowelPlaced;
+        // towel.OnPlacedTowel += OnFoldedTowelPlaced;
         
         _spawnedTowels.Add(towel);
         _current++;
     }
     
-    private void OnFoldedTowelPlaced()
-    {
-        _canSpawn = true;
-        LevelManager.Instance.CurrentLevel.ClothesRemaining--;
-        
-        if (LevelManager.Instance.CurrentLevel.ClothesRemaining == 0)
-        {
-            LevelManager.Instance.LevelComplete();
-        }
-    }
+    // private void OnFoldedTowelPlaced()
+    // {
+    //     _canSpawn = true;
+    //     LevelManager.Instance.CurrentLevel.ClothesRemaining--;
+    //     
+    //     if (LevelManager.Instance.CurrentLevel.ClothesRemaining == 0)
+    //     {
+    //         LevelManager.Instance.LevelComplete();
+    //     }
+    // }
         
     private void OnLaundryPlaced(GarmentInfo garment)
     {
@@ -83,10 +84,13 @@ public class TowelSpawner : MonoBehaviour
     {
         foreach (var towel in _spawnedTowels)
         {
-            Destroy(towel.gameObject);
+            if(towel != null)
+                Destroy(towel.gameObject);
         }
         _spawnedTowels.Clear();
         _canSpawn = true;
+        
+        tutorial.gameObject.SetActive(false);
     }
 
     public void CanSpawn()

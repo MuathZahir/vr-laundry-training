@@ -12,6 +12,16 @@ public class FoldedTowel : MonoBehaviour
     
     //[SerializeField] private Animator animator;
 
+    private void OnEnable()
+    {
+        LevelManager.OnLevelRestart += OnRestart;
+    }
+    
+    private void OnDisable()
+    {
+        LevelManager.OnLevelRestart -= OnRestart;
+    }
+
     public void OnPickup()
     {
         IsHeld = true;
@@ -22,5 +32,10 @@ public class FoldedTowel : MonoBehaviour
     {
         IsHeld = false;
         OnPutDown?.Invoke(this);
+    }
+
+    private void OnRestart()
+    {
+        Destroy(transform.parent.gameObject);
     }
 }

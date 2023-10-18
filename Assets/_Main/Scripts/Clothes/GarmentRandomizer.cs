@@ -75,7 +75,7 @@ public class GarmentRandomizer : MonoBehaviour
         
         // Randomize stain and dirt amount
         var stainAmount = stainColor.StainType == StainType.Hard ? random.NextDouble() * 0.2 + 0.8 
-            : random.NextDouble() * 0.05 + 0.2;
+            : random.NextDouble() * 0.05 + 0.05;
         
         var dirtAmount = random.NextDouble() * 0.5 + 0.5;
         
