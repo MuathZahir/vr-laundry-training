@@ -12,6 +12,7 @@ public class IncompleteUI : MonoBehaviour
     [SerializeField] private Color completeColor;
     [SerializeField] private Sprite completeSprite;
 
+    [SerializeField] private GameObject root;
     [SerializeField] private GameObject completeUI;
     [SerializeField] private GameObject incompleteUI;
     
@@ -19,14 +20,14 @@ public class IncompleteUI : MonoBehaviour
     
     private void OnEnable()
     {
-        LevelManager.OnLevelComplete += UpdateUI;
-        LevelManager.OnLevelRestart += UpdateUI;
+        LevelManager.Instance.OnLevelComplete += UpdateUI;
+        LevelManager.Instance.OnLevelRestart += UpdateUI;
     }
     
     private void OnDisable()
     {
-        LevelManager.OnLevelComplete -= UpdateUI;
-        LevelManager.OnLevelRestart -= UpdateUI;
+        LevelManager.Instance.OnLevelComplete -= UpdateUI;
+        LevelManager.Instance.OnLevelRestart -= UpdateUI;
     }
 
     private void Start()
@@ -47,18 +48,19 @@ public class IncompleteUI : MonoBehaviour
             completeIndicators[i].sprite = isComplete ? completeSprite : incompleteSprite;
             completeIndicators[i].color = isComplete ? completeColor : incompleteColor;
         }
+        
+        completeUI.SetActive(_isAllComplete);
+        incompleteUI.SetActive(!_isAllComplete);
     }
 
     public void ShowUI()
     {
-        completeUI.SetActive(_isAllComplete);
-        incompleteUI.SetActive(!_isAllComplete);
+        root.SetActive(true);
     }
     
     public void HideUI()
     {
-        completeUI.SetActive(false);
-        incompleteUI.SetActive(false);
+        root.SetActive(false);
     }
     
 }

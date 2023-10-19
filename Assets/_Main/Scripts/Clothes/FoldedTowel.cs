@@ -14,12 +14,12 @@ public class FoldedTowel : MonoBehaviour
 
     private void OnEnable()
     {
-        LevelManager.OnLevelRestart += OnRestart;
+        LevelManager.Instance.OnLevelRestart += OnRestart;
     }
     
     private void OnDisable()
     {
-        LevelManager.OnLevelRestart -= OnRestart;
+        LevelManager.Instance.OnLevelRestart -= OnRestart;
     }
 
     public void OnPickup()

@@ -67,7 +67,10 @@ namespace Oculus.Interaction
             if (_started)
             {
                 _grabbable.WhenPointerEventRaised += HandlePointerEventRaised;
+
+                _rigidbody.constraints = RigidbodyConstraints.None;
             }
+            
         }
 
         protected virtual void OnDisable()

@@ -1346,7 +1346,7 @@ MonoBehaviour:
     mergeAvatarCollider: 0
   userBlendWeight: 1
   updateMode: 0
-  cullingMode: 10
+  cullingMode: 100
   skinningMode: 0
   clothParams:
     algorithm: 1

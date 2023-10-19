@@ -19,9 +19,9 @@ public class PagesUI : MonoBehaviour
             pageComponent.Initialize();
         }
 
-        LevelManager.OnChangeLevel += OnLevelLoaded;
-        LevelManager.OnLevelComplete += OnLevelComplete;
-        LevelManager.OnLevelRestart += OnLevelRestart;
+        LevelManager.Instance.OnChangeLevel += OnLevelLoaded;
+        LevelManager.Instance.OnLevelComplete += OnLevelComplete;
+        LevelManager.Instance.OnLevelRestart += OnLevelRestart;
     }
 
     private void OnLevelRestart()

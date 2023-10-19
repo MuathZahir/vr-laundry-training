@@ -10,9 +10,9 @@ using Random = UnityEngine.Random;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
-    public static event Action OnChangeLevel;
-    public static event Action OnLevelComplete;
-    public static event Action OnLevelRestart;
+    public event Action OnChangeLevel;
+    public event Action OnLevelComplete;
+    public event Action OnLevelRestart;
     public Level CurrentLevel => Levels[_currentLevel];
     public int StartLevel;
     
@@ -24,10 +24,6 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        OnChangeLevel = null;
-        OnLevelComplete = null;
-        OnLevelRestart = null;
     }
 
     [ContextMenu("Complete current level")]
@@ -65,8 +61,6 @@ public class LevelManager : MonoBehaviour
 
         CurrentLevel.EnterLevel();
         
-        Levels[levelNumber].ShowInstructionScreen();
-
         OnChangeLevel?.Invoke();
     }
     
@@ -92,7 +86,7 @@ public class LevelManager : MonoBehaviour
     {
         for (int i = 0; i < Levels.Count; i++)
         {
-            if (Levels[i].State == LevelState.NotCompleted)
+            if (Levels[i].State == LevelState.NotCompleted || Levels[i].State == LevelState.NotStarted)
             {
                 MoveToLevel(i);
                 return;

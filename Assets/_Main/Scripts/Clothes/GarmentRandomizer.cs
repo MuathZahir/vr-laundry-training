@@ -75,7 +75,7 @@ public class GarmentRandomizer : MonoBehaviour
         
         // Randomize stain and dirt amount
         var stainAmount = stainColor.StainType == StainType.Hard ? random.NextDouble() * 0.2 + 0.8 
-            : random.NextDouble() * 0.05 + 0.05;
+            : random.NextDouble() * 0.2 + 0.2;
         
         var dirtAmount = random.NextDouble() * 0.5 + 0.5;
         
@@ -87,7 +87,7 @@ public class GarmentRandomizer : MonoBehaviour
         
         // Randomize stain and dirt texture tiling and offset
         var stainSize = (float)(random.NextDouble() * 0.7 + 1);
-        var dirtSize = (float)(random.NextDouble() * 2.5 + 0.5);
+        var dirtSize = (float)(random.NextDouble() * 3 + 2);
         
         var stainOffset = new Vector2((float)random.NextDouble(), (float)random.NextDouble());
         var dirtOffset = new Vector2((float)random.NextDouble(), (float)random.NextDouble());

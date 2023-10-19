@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Level : MonoBehaviour
 {
     public int ClothesRemaining { get; set; }
-    public LevelState State { get; set; } = LevelState.NotCompleted;
+    public LevelState State { get; set; } = LevelState.NotStarted;
     public LevelInfo Info { get; private set; }
     public int LevelNumber { get; private set; }
 
@@ -49,6 +49,10 @@ public class Level : MonoBehaviour
 
     public void EnterLevel()
     {
+        if(State == LevelState.NotStarted)
+            instructionScreen.SetActive(true);
+        else
+            StartLevel();
     }
     
     public void StartLevel()
@@ -59,6 +63,9 @@ public class Level : MonoBehaviour
             tutorial.StartTutorial();
         
         menu.SetActive(true);
+        
+        if(State != LevelState.Completed)
+            State = LevelState.NotCompleted;
     }
 
     public void LeaveLevel()
@@ -85,7 +92,7 @@ public class Level : MonoBehaviour
         menu.SetActive(false);
         instructionScreen.SetActive(true);
         
-        State = LevelState.NotCompleted;
+        State = LevelState.NotStarted;
         ClothesRemaining = clothesRequired;
     }
 
@@ -105,6 +112,7 @@ public class Level : MonoBehaviour
 
 public enum LevelState
 {
+    NotStarted,
     NotCompleted,
     Completed
 }

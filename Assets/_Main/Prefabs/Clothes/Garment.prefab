@@ -350,12 +350,6 @@ MonoBehaviour:
   softStainMask: {fileID: 2800000, guid: 41d8e7878162de840bb6976f18036581, type: 3}
   hardStainMask: {fileID: 2800000, guid: 41d8e7878162de840bb6976f18036581, type: 3}
   stainColors:
-  - Name: Oil-Based Stain
-    Color: {r: 0.41960785, g: 0.25882354, b: 0.14901961, a: 1}
-    StainType: 1
-  - Name: Grease Stain
-    Color: {r: 0.36078432, g: 0.38431373, b: 0.36078432, a: 1}
-    StainType: 1
   - Name: Ink Stain
     Color: {r: 0, g: 0.12156863, b: 0.24705882, a: 1}
     StainType: 1
@@ -372,16 +366,10 @@ MonoBehaviour:
     Color: {r: 0.29411766, g: 0.21960784, b: 0.19607843, a: 1}
     StainType: 2
   - Name: Tea Stain
-    Color: {r: 0.8235294, g: 0.7058824, b: 0.54901963, a: 1}
-    StainType: 2
-  - Name: Juice Stain
-    Color: {r: 1, g: 0.627451, b: 0.47843137, a: 1}
-    StainType: 2
-  - Name: Sweat Stain
-    Color: {r: 0.9411765, g: 0.9019608, b: 0.54901963, a: 1}
+    Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
     StainType: 2
   - Name: Mud Stain
-    Color: {r: 0.39607844, g: 0.2627451, b: 0.12941177, a: 1}
+    Color: {r: 0.4056604, g: 0.32414562, b: 0.24263082, a: 1}
     StainType: 2
 --- !u!114 &3441934546101809378
 MonoBehaviour:
@@ -542,7 +530,7 @@ MonoBehaviour:
     mergeAvatarCollider: 1
   userBlendWeight: 1
   updateMode: 0
-  cullingMode: 0
+  cullingMode: 100
   skinningMode: 0
   clothParams:
     algorithm: 1
