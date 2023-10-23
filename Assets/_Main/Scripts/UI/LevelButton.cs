@@ -51,7 +51,13 @@ public class LevelButton : MonoBehaviour
     
     public void OnToggle(bool isOn)
     {
-        if (!isOn || LevelManager.Instance.CurrentLevel == _level) return;
+        if (LevelManager.Instance.CurrentLevel == _level)
+        {
+            LevelManager.Instance.RestartLevel();
+            return;
+        }
+
+        if (!isOn) return;
         
         OnLevelSelected?.Invoke(_level);
     }
