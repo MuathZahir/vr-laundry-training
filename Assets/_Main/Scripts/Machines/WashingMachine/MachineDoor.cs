@@ -33,6 +33,13 @@ public class MachineDoor : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0, 0, 0);
         doorRotateTransformer.UpdateAngle(0);
     }
+    
+    [ContextMenu("Open Door")]
+    public virtual void OpenDoor()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, -120);
+        doorRotateTransformer.UpdateAngle(120);
+    }
 
     public void IsDoorEnabled(bool isEnabled)
     {

@@ -25,7 +25,7 @@ public class WashingMachine : LaundryContainer
         
         machineDoor.OnDoorClosed += () => menu.ShowDoorOpenWarning(false);
     }
-    
+
     public override void OnLaundryRemoved(GarmentInfo garment)
     {
         _clothes.Remove(garment);

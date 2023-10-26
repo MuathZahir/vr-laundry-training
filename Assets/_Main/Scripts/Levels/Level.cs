@@ -19,6 +19,7 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject instructionScreen;
     [SerializeField] private GameObject menu;
     [SerializeField] private List<LevelRestartAction> levelRestartActions = new List<LevelRestartAction>();
+    [SerializeField] private UnityEvent OnLevelStart;
     [SerializeField] private UnityEvent OnLevelComplete;
     
     private static readonly int Start = Animator.StringToHash("Start");
@@ -66,6 +67,8 @@ public class Level : MonoBehaviour
         
         if(State != LevelState.Completed)
             State = LevelState.NotCompleted;
+        
+        OnLevelStart?.Invoke();
     }
 
     public void LeaveLevel()
